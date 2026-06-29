@@ -202,6 +202,7 @@ onMounted(() => {
   margin-top: 8px;
   .n-tag {
     font-size: 14px;
+    cursor: pointer;
     .n-icon {
       font-size: 16px;
       margin-left: 4px;

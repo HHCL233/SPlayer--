@@ -15,7 +15,7 @@
       @click.stop
     >
       <!-- 歌曲信息页 -->
-      <div class="page info-page">
+      <n-scrollbar class="page info-page">
         <!-- 封面 -->
         <div class="cover-section">
           <PlayerCover :no-lyric="true" />
@@ -120,7 +120,7 @@
             <div v-else class="placeholder"></div>
           </div>
         </div>
-      </div>
+      </n-scrollbar>
 
       <!-- 歌词页 -->
       <div class="page lyric-page">

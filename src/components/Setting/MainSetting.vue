@@ -33,11 +33,7 @@
         </Transition>
         <!-- 信息 -->
         <div class="power">
-          <n-text class="author" :depth="2" @click="toGithub">
-            <SvgIcon name="Github" :size="20" />
-            {{ packageJson.author }}
-          </n-text>
-          <n-text class="name">SPlayer</n-text>
+          <n-text class="name">SPlayer--</n-text>
           <n-tag v-if="isNightly" class="version" size="small" type="primary" round>
             Nightly · {{ displayVersion }}
           </n-tag>
@@ -389,7 +385,7 @@ onMounted(() => {
       flex: 1;
     }
     .power {
-      height: 50px;
+      height: 25px;
       margin: auto 0 0 10px;
       .name {
         font-weight: bold;
@@ -397,16 +393,6 @@ onMounted(() => {
       }
       .version {
         pointer-events: none;
-      }
-      .author {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 4px;
-        cursor: pointer;
-        .n-icon {
-          margin-right: 4px;
-        }
       }
     }
   }

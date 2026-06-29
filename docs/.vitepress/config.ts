@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "SPlayer",
+  title: "SPlayer--",
   description: "一个简约的音乐播放器",
   lang: "zh-CN",
   ignoreDeadLinks: true,
@@ -14,7 +14,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/favicon.png",
-    siteTitle: "SPlayer",
+    siteTitle: "SPlayer--",
     nav: [
       { text: "首页", link: "/" },
       { text: "下载", link: "/download" },

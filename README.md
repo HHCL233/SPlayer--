@@ -1,34 +1,27 @@
-> [!CAUTION]
->
-> # 本项目进入维护模式
->
-> 项目已进入维护模式，后续仅进行必要的维护与重大问题修复，不再主动开发新功能
->
-> 新功能及后续版本请移步 [SPlayer-Next](https://github.com/SPlayer-Dev/SPlayer-Next)
-
 <div align="center">
 <img alt="logo" height="100" width="100" src="public/icons/favicon.png" />
-<h2> SPlayer </h2>
-<p> 一个简约的音乐播放器 </p>
-
-[API Docs](https://splayer.imsyy.top/api.html) | [开发版](https://github.com/imsyy/SPlayer/actions) | [发行版](https://splayer.imsyy.top/download.html)
+<h2> SPlayer-- </h2>
+<p> 基于SPlayer的简约音乐播放器 </p>
 
 <br />
 
-[![Stars](https://img.shields.io/github/stars/imsyy/SPlayer?style=flat)](https://github.com/imsyy/SPlayer/stargazers)
-[![Version](https://img.shields.io/github/v/release/imsyy/SPlayer)](https://github.com/imsyy/SPlayer/releases)
-[![Build Release](https://github.com/imsyy/SPlayer/actions/workflows/release.yml/badge.svg)](https://github.com/imsyy/SPlayer/actions/workflows/release.yml)
-[![License](https://img.shields.io/github/license/imsyy/SPlayer)](https://github.com/imsyy/SPlayer/blob/dev/LICENSE)
-[![Issues](https://img.shields.io/github/issues/imsyy/SPlayer)](https://github.com/imsyy/SPlayer/issues)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/imsyy/SPlayer)
+[![Stars](https://img.shields.io/github/stars/HHCL233/SPlayer?style=flat)](https://github.com/HHCL233/SPlayer/stargazers)
+[![Build Release](https://github.com/HHCL233/SPlayer/actions/workflows/release.yml/badge.svg)](https://github.com/HHCL233/SPlayer/actions/workflows/release.yml)
+[![License](https://img.shields.io/github/license/HHCL233/SPlayer)](https://github.com/HHCL233/SPlayer/blob/dev/LICENSE)
+[![Issues](https://img.shields.io/github/issues/HHCL233/SPlayer)](https://github.com/HHCL233/SPlayer/issues)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/HHCL233/SPlayer)
 
 </div>
 
-![main](/screenshots/SPlayer.jpg)
-
 ## 说明
 
-![提示](/screenshots/gitcodes.png)
+> [!IMPORTANT]
+>
+> ### 搬运可耻
+>
+> SPlayer-- 只在 Github 上发布！如果你在其他地方看见了他，请帮忙举报并访问真正的仓库！
+>
+> 非官方的出处可能会带来不安全的软件和无法保障的错误反馈通道。维护良好的开源环境是大家应尽的责任。
 
 > [!IMPORTANT]
 >
@@ -43,10 +36,7 @@
 - 本项目采用 [Vue 3](https://cn.vuejs.org/) + [TypeScript](https://www.typescriptlang.org/) + [Naïve UI](https://www.naiveui.com/) + [Electron](https://www.electronjs.org/zh/docs/latest/) 开发
 - Node.js 版本要求：>= 20，包管理器：pnpm >= 10
 - 默认会构建原生模块，需准备 Rust 工具链；如仅需要网页端构建或暂时跳过，可设置环境变量 `SKIP_NATIVE_BUILD=true`
-- 支持网页端与客户端，由于设备有限，目前仅保证 Windows 系统的适配，其他平台如遇问题可以提 Issue 或自行解决后选择提 PR
-<!-- - 仅对移动端做了基础适配，**不保证功能全部可用** -->
-
-<!--  > 请注意，本程序不打算开发移动端，也不会对移动端进行完美适配，仅保证基础可用性 -->
+- 支持网页端与客户端，由于设备有限，目前仅保证 Linux 系统的适配，其他平台如遇问题可以提 Issue 或自行解决后选择提 PR
 
 - 欢迎各位大佬 `Star` 😍
 
@@ -65,14 +55,9 @@
 
 默认会编译 `native/*` 下的原生模块（需要 Rust）。如果你的场景不需要原生能力，可设置 `SKIP_NATIVE_BUILD=true` 后再执行 `pnpm dev` / `pnpm build`。
 
-## 👀 Demo
-
-- 在线演示：[SPlayer](https://splayer.20100907.xyz)
-
-  > 如打不开，说明已经失效请自行前往 [获取](#️-获取)
-
 ## 🎉 功能
 
+- 🆕 对SPlayer的优化
 - ✨ 支持扫码登录
 - 📱 支持手机号登录
 - ~~📅 自动进行每日签到及云贝签到~~
@@ -99,61 +84,13 @@
 - 🎵 支持 Last.fm Scrobble（播放记录上报）
 - 📱 移动端基础适配
 
-## 🖼️ 界面展示
-
-> 开发中，仅供参考
-
-<details>
-<summary> 主页面 </summary>
-
-![主页面](/screenshots/SPlayer%20-%20主页面.jpg)
-
-</details>
-
-<details>
-<summary> 播放页面 </summary>
-
-![播放页面](/screenshots/SPlayer%20-%20播放页面.jpg)
-
-</details>
-
-<details>
-<summary> 发现页面 </summary>
-
-![发现页面](/screenshots/SPlayer%20-%20发现页面.jpg)
-
-</details>
-
-<details>
-<summary> 歌单页面 </summary>
-
-![发现页面](/screenshots/SPlayer%20-%20歌单页面.jpg)
-
-</details>
-
-<details>
-<summary> 评论页面 </summary>
-
-![发现页面](/screenshots/SPlayer%20-%20评论页面.jpg)
-
-</details>
-
-<details>
-<summary> 本地音乐 </summary>
-
-![发现页面](/screenshots/SPlayer%20-%20本地音乐.jpg)
-
-</details>
-
 ## 📦️ 获取
 
 ### 二进制安装方案
 
 #### 稳定版
 
-通常情况下，可以在 [Releases](https://github.com/imsyy/SPlayer/releases) 中获取稳定版
-
-也可前往 [SPlayer 官网](https://splayer.imsyy.top/) 获取稳定版
+通常情况下，可以在 [Releases](https://github.com/HHCL233/SPlayer/releases) 中获取稳定版
 
 #### 开发版
 
@@ -162,40 +99,6 @@
 [Dev Workflow](https://github.com/imsyy/SPlayer/actions/workflows/dev.yml)
 
 ### 自行部署方案
-
-#### ⚙️ Docker 部署
-
-> 安装及配置 `Docker` 将不在此处说明，请自行解决
-
-##### 本地构建
-
-> 请尽量拉取最新分支后使用本地构建方式，在线部署的仓库可能更新不及时
-
-```bash
-# 构建
-docker build -t splayer .
-
-# 运行
-docker run -d --name SPlayer -p 25884:25884 splayer
-# 或使用 Docker Compose
-docker-compose up -d
-```
-
-Docker 镜像内包含网页端以及运行所需的服务，默认通过 `25884` 端口访问。
-
-##### 在线部署
-
-```bash
-# 从 Docker Hub 拉取
-docker pull imsyy/splayer:latest
-# 从 GitHub ghcr 拉取
-docker pull ghcr.io/imsyy/splayer:latest
-
-# 运行
-docker run -d --name SPlayer -p 25884:25884 imsyy/splayer:latest
-```
-
-以上步骤成功后，将会在本地 [localhost:25884](http://localhost:25884/) 启动，如需更换端口，请自行修改命令行中的第一个端口号
 
 #### ⚙️ Vercel 部署
 
@@ -222,7 +125,7 @@ docker run -d --name SPlayer -p 25884:25884 imsyy/splayer:latest
 2. 克隆仓库
 
    ```bash
-   git clone https://github.com/imsyy/SPlayer.git
+   git clone https://github.com/SPlayer-Dev/SPlayer.git
    ```
 
 3. 安装依赖
@@ -267,6 +170,7 @@ docker run -d --name SPlayer -p 25884:25884 imsyy/splayer:latest
 
 特此感谢为本项目提供支持与灵感的项目：
 
+- [SPlayer](https://github.com/SPlayer-Dev/SPlayer)
 - [NeteaseCloudMusicApi](https://github.com/neteasecloudmusicapienhanced/api-enhanced)
 - [YesPlayMusic](https://github.com/qier222/YesPlayMusic)
 - [UnblockNeteaseMusic](https://github.com/UnblockNeteaseMusic/server)
@@ -280,8 +184,8 @@ docker run -d --name SPlayer -p 25884:25884 imsyy/splayer:latest
 欢迎加入我们 🥰! 一起为 SPlayer 贡献一份力量。
 感谢以下所有贡献者 💖
 
-<a href="https://github.com/imsyy/SPlayer/graphs/contributors" target="_blank" rel="noopener">
-  <img src="https://contrib.rocks/image?repo=imsyy/SPlayer&max=30&anon=1&v=1"
+<a href="https://github.com/HHCL233/SPlayer/graphs/contributors" target="_blank" rel="noopener">
+  <img src="https://contrib.rocks/image?repo=HHCL233/SPlayer&max=30&anon=1&v=1"
     alt="SPlayer 项目贡献者"
     width="650"
     loading="lazy"
@@ -311,4 +215,4 @@ docker run -d --name SPlayer -p 25884:25884 imsyy/splayer:latest
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=imsyy/SPlayer&type=Date)](https://star-history.com/#imsyy/SPlayer&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=imsyy/SPlayer&type=Date)](https://star-history.com/#HHCL233/SPlayer&Date)

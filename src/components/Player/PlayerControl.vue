@@ -3,10 +3,6 @@
     <Transition name="fade" mode="out-in">
       <div v-show="statusStore.playerMetaShow" class="control-content" @click.stop>
         <n-flex class="left" align="center">
-          <!-- 收起 -->
-          <div class="menu-icon" @click.stop="statusStore.showFullPlayer = false">
-            <SvgIcon name="Down" />
-          </div>
           <!-- 喜欢歌曲 -->
           <div
             v-if="
@@ -49,7 +45,10 @@
           >
             <div
               class="menu-icon"
-              @click.stop="statusStore.showPlayerComment = !statusStore.showPlayerComment"
+              @click.stop="
+                statusStore.showPlayerComment = !statusStore.showPlayerComment;
+                statusStore.pureLyricMode = false;
+              "
             >
               <SvgIcon :depth="statusStore.showPlayerComment ? 1 : 3" name="Message" />
             </div>
@@ -184,10 +183,7 @@ const fetchCommentCount = async () => {
 };
 
 const showCommentButton = computed(
-  () =>
-    !musicStore.playSong.path &&
-    !statusStore.pureLyricMode &&
-    settingStore.fullscreenPlayerElements.comments,
+  () => !musicStore.playSong.path && settingStore.fullscreenPlayerElements.comments,
 );
 
 // 歌曲变化时获取评论数量

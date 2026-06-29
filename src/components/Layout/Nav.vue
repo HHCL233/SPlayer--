@@ -2,6 +2,17 @@
   <n-layout-header class="nav">
     <!-- 页面导航 -->
     <n-flex class="page-control">
+      <n-button
+        v-if="!isDesktop"
+        :focusable="false"
+        tertiary
+        circle
+        @click="showAside = !showAside"
+      >
+        <template #icon>
+          <SvgIcon name="Menu" />
+        </template>
+      </n-button>
       <Logo v-if="!isDesktop" :size="40" @click="router.push('/')" />
       <template v-if="!isSmallScreen">
         <n-button :focusable="false" tertiary circle @click="router.go(-1)">
@@ -47,17 +58,6 @@
           </n-button>
         </n-dropdown>
         <!-- 移动端菜单 -->
-        <n-button
-          v-if="!isDesktop"
-          :focusable="false"
-          tertiary
-          circle
-          @click="showAside = !showAside"
-        >
-          <template #icon>
-            <SvgIcon name="Menu" />
-          </template>
-        </n-button>
         <n-drawer v-model:show="showAside" :width="240" placement="left">
           <n-drawer-content :body-content-style="{ padding: 0 }" :native-scrollbar="false">
             <template #header>
@@ -257,7 +257,7 @@ const setOptions = computed<DropdownOption[]>(() => [
   {
     key: "dev-tools",
     label: "开启控制台",
-    show: isDev,
+    show: isDev && isElectron,
     icon: renderIcon("Code"),
   },
   {

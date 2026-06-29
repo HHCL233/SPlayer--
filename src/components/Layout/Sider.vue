@@ -4,7 +4,7 @@
     <!-- Logo -->
     <div :class="['logo', { collapsed: statusStore.menuCollapsed }]" @click="router.push('/')">
       <Logo />
-      <n-text>SPlayer</n-text>
+      <n-text>SPlayer--</n-text>
     </div>
     <n-scrollbar
       :style="{
@@ -37,7 +37,7 @@ const statusStore = useStatusStore();
     transition: transform 0.3s;
     cursor: pointer;
     .n-text {
-      width: 90px;
+      width: 120px;
       font-size: 22px;
       font-family: "logo";
       margin-left: 8px;

@@ -2,21 +2,10 @@
   <div class="setting-type">
     <div class="set-list">
       <n-h3 prefix="bar"> 关于软件 </n-h3>
-      <n-alert type="warning" style="margin-bottom: 12px">
-        <template #header>本项目已进入维护模式</template>
-        后续仅进行必要的维护与重大问题修复，不再主动开发新功能。新功能及后续版本请移步
-        <n-button
-          text
-          type="primary"
-          @click="openLink('https://github.com/SPlayer-Dev/SPlayer-Next')"
-        >
-          SPlayer-Next
-        </n-button>
-      </n-alert>
       <n-card class="set-item">
         <n-flex align="center" class="about">
           <SvgIcon name="SPlayer" size="26" />
-          <n-text class="logo-name">SPlayer</n-text>
+          <n-text class="logo-name">SPlayer--</n-text>
           <n-tag v-if="statusStore.isDeveloperMode" size="small" type="warning" round> DEV </n-tag>
           <n-tag size="small" type="primary" round @click="openDeveloperMode">
             {{ packageJson.version }}
@@ -24,8 +13,25 @@
         </n-flex>
         <n-flex>
           <n-button
+            type="primary"
+            strong
+            secondary
+            @click="openLink('https://github.com/HHCL233/SPlayer')"
+          >
+            前往SPlayer--仓库
+          </n-button>
+          <n-button
+            type="primary"
+            strong
+            secondary
+            @click="openLink('https://github.com/SPlayer-Dev/SPlayer')"
+          >
+            前往SPlayer仓库
+          </n-button>
+          <n-button
             :loading="statusStore.updateCheck"
             type="primary"
+            v-if="isElectron"
             strong
             secondary
             @click="checkUpdate"
@@ -37,6 +43,7 @@
           </n-button>
         </n-flex>
       </n-card>
+      <!--
       <n-collapse-transition :show="!!updateData">
         <n-card class="set-item update-data">
           <n-collapse arrow-placement="right">
@@ -58,6 +65,7 @@
           </n-collapse>
         </n-card>
       </n-collapse-transition>
+      -->
     </div>
     <div class="set-list">
       <n-h3 prefix="bar"> 特别鸣谢 </n-h3>
@@ -80,7 +88,12 @@
                 fallback-src="/images/avatar.jpg?asset"
               />
               <n-flex vertical :gap="4" style="flex: 1; min-width: 0">
-                <n-text class="name" strong>{{ item.name }}</n-text>
+                <n-text class="name" strong>
+                  {{ item.name }}
+                  <n-tag size="small" type="primary" round @click="openDeveloperMode">
+                    {{ item.type }}
+                  </n-tag>
+                </n-text>
                 <n-text class="tip" :depth="3">{{ item.description }}</n-text>
               </n-flex>
             </n-flex>
@@ -242,7 +255,7 @@ const allContributors = ref<DeveloperType[]>([]);
 const getContributors = async () => {
   try {
     const response = await fetch(
-      "https://api.github.com/repos/imsyy/SPlayer/contributors?per_page=100&anon=true",
+      "https://api.github.com/repos/HHCL233/SPlayer/contributors?per_page=100&anon=true",
     );
     const data = await response.json();
     if (Array.isArray(data)) {
@@ -289,7 +302,16 @@ const contributors = [
 // 贡献人员列表
 const specialContributors = [
   {
+    name: "hhcl233",
+    type: "改版开发者",
+    description: "我不知道~",
+    avatar: "https://avatars.githubusercontent.com/u/108406074",
+    buttonText: "GitHub",
+    url: "https://github.com/HHCL233",
+  },
+  {
     name: "imsyy",
+    type: "原项目开发者",
     description: "每天在屎山和 PR 之间徘徊的作者",
     avatar: "/images/avatar/imsyy.webp",
     buttonText: "个人主页",
@@ -297,6 +319,7 @@ const specialContributors = [
   },
   {
     name: "Kazukokawagawa 池鱼鱼！",
+    type: "原项目开发者",
     description:
       "这里是什么？万能的池鱼！在开发过程中找出了一堆没人能想得到的诡异Bug，有非同寻常的Bug体质，可以用2天写完别人一个月commit",
     avatar: "/images/avatar/chiyu.webp",
@@ -305,6 +328,7 @@ const specialContributors = [
   },
   {
     name: "MoYingJi",
+    type: "原项目开发者",
     description: "这个人一点都不神秘，虽然写了一点，但就像什么都没有写",
     avatar: "/images/avatar/moyingji.webp",
     buttonText: "GitHub",
@@ -312,6 +336,7 @@ const specialContributors = [
   },
   {
     name: "apoint123",
+    type: "原项目开发者",
     description: "Rustacean",
     avatar: "/images/avatar/apoint123.webp",
     buttonText: "GitHub",
@@ -327,7 +352,12 @@ const communityData = [
     icon: "Github",
   },
   {
-    name: "官方博客",
+    name: "原项目GitHub",
+    url: packageJson.originalGithub,
+    icon: "Github",
+  },
+  {
+    name: "原项目官方博客",
     url: packageJson.blog,
     icon: "RssFeed",
   },
