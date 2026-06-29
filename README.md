@@ -125,7 +125,7 @@
 2. 克隆仓库
 
    ```bash
-   git clone https://github.com/SPlayer-Dev/SPlayer.git
+   git clone https://github.com/HHCL233/SPlayer.git
    ```
 
 3. 安装依赖
