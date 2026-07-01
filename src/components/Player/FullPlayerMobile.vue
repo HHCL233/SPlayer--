@@ -256,6 +256,8 @@ const contentTransform = computed(() => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  padding: 24px;
   .top-bar {
     position: absolute;
     width: 100%;
@@ -264,7 +266,8 @@ const contentTransform = computed(() => {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 24px;
+    box-sizing: border-box;
+    padding: 0 48px;
     z-index: 10;
     .btn {
       width: 40px;
@@ -290,6 +293,7 @@ const contentTransform = computed(() => {
     display: flex;
     width: 200%;
     height: 100%;
+    align-items: center;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     &.swiping {
       transition: none;
