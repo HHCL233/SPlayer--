@@ -132,7 +132,6 @@ import { renderIcon } from "@/utils/helper";
 import { isElectron } from "@/utils/env";
 import { useStatusStore } from "@/stores";
 import { getDisplayVersion, isNightly } from "@/utils/version";
-import packageJson from "@/../package.json";
 import { usePlaySettings } from "./config/play";
 import { useGeneralSettings } from "./config/general";
 import { useAppearanceSettings } from "./config/appearance";
@@ -140,6 +139,7 @@ import { useLyricSettings } from "./config/lyric";
 import { useKeyboardSettings } from "./config/keyboard";
 import { useLocalSettings } from "./config/local";
 import { useNetworkSettings } from "./config/network";
+// import packageJson from "@/../package.json";
 
 const props = defineProps<{ type: SettingType; scrollTo?: string }>();
 
