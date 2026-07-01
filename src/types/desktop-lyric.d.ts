@@ -57,6 +57,8 @@ export interface LyricConfig {
   alwaysShowPlayInfo: boolean;
   /** 是否开启歌词切换动画 */
   animation: boolean;
+  /** 是否显示歌词隐藏按钮 */
+  isHindLock: boolean;
 }
 
 /**

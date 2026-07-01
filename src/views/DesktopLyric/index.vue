@@ -41,6 +41,7 @@
             <SvgIcon name="Settings" />
           </div>
           <div
+            v-if="!lyricConfig.isHindLock"
             class="menu-btn lock-btn"
             @mouseenter.stop="tempToggleLyricLock(false)"
             @mouseleave.stop="tempToggleLyricLock(true)"

@@ -17,6 +17,7 @@ const config: LyricConfig = {
   backgroundMaskColor: "rgba(0, 0, 0, 0.5)",
   alwaysShowPlayInfo: false,
   animation: true,
+  isHindLock: false,
 };
 
 export default config;

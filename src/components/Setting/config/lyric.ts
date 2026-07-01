@@ -633,6 +633,19 @@ export const useLyricSettings = (): SettingConfig => {
             }),
           },
           {
+            key: "hideLockButton",
+            label: "隐藏锁定按钮",
+            type: "switch",
+            description: "是否隐藏锁定按钮",
+            value: computed({
+              get: () => desktopLyricConfig.isHindLock,
+              set: (v) => {
+                desktopLyricConfig.isHindLock = v;
+                saveDesktopLyricConfig();
+              },
+            }),
+          },
+          {
             key: "desktopLyricDoubleLine",
             label: "双行歌词",
             type: "switch",
