@@ -33,14 +33,6 @@
         <n-flex class="close" align="center" justify="center" @click="openExcludeComment">
           <SvgIcon name="Tag" :size="20" />
         </n-flex>
-        <n-flex
-          class="close"
-          align="center"
-          justify="center"
-          @click="statusStore.showPlayerComment = false"
-        >
-          <SvgIcon name="Music" :size="24" />
-        </n-flex>
       </div>
     </n-flex>
     <n-scrollbar ref="commentScroll" class="comment-scroll">

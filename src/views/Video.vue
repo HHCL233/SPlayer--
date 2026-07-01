@@ -86,7 +86,10 @@
     <Transition name="fade" mode="out-in">
       <div v-if="videoData" class="desc">
         <n-divider />
-        <n-ellipsis :line-clamp="3" :tooltip="{ placement: 'bottom', width: 'trigger' }">
+        <n-ellipsis
+          :line-clamp="3"
+          :tooltip="{ placement: 'bottom', width: 'trigger', contentStyle: { userSelect: 'text' } }"
+        >
           {{ videoData?.description || "该视频暂无简介" }}
         </n-ellipsis>
         <n-flex v-if="videoData?.tags" class="tags">
