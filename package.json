@@ -1,7 +1,7 @@
 {
-  "name": "splayer",
-  "productName": "SPlayer",
-  "desktopName": "top.imsyy.SPlayer",
+  "name": "splayer--",
+  "productName": "SPlayer--",
+  "desktopName": "top.hhcl233.SPlayer",
   "version": "3.1.1",
   "packageManager": "pnpm@10.28.1",
   "description": "A minimalist music player",
@@ -11,7 +11,7 @@
   "originalGithub": "https://github.com/SPlayer-Dev/SPlayer",
   "github": "https://github.com/HHCL233/SPlayer",
   "blog": "https://blog.imsyy.top",
-  "repository": "github:SPlayer-Dev/SPlayer",
+  "repository": "github:HHCL233/SPlayer",
   "license": "AGPL-3.0",
   "license-file": "LICENSE",
   "engines": {
