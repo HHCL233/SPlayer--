@@ -266,7 +266,7 @@ const contentTransform = computed(() => {
     align-items: center;
     justify-content: flex-end;
     box-sizing: border-box;
-    padding: 0 48px;
+    padding: 16px;
     z-index: 10;
     .btn {
       width: 40px;
