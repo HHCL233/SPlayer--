@@ -1,6 +1,6 @@
 import type { CoverType, UpdateInfoType, SettingType, SongType } from "@/types/main";
 import { CURRENT_AGREEMENT_VERSION } from "@/constants/agreement";
-import { NScrollbar, selectDark } from "naive-ui";
+import { NScrollbar } from "naive-ui";
 import { isLogin } from "./auth";
 import { isArray, isFunction } from "lodash-es";
 import { useDataStore, useSettingStore } from "@/stores";

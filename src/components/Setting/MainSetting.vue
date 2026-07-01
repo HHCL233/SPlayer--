@@ -340,9 +340,11 @@ const menuOptions: MenuOption[] = [
 ];
 
 // 跳转
+/**
 const toGithub = () => {
   window.open(packageJson.github);
 };
+*/
 
 onMounted(() => {
   if (props.scrollTo) {

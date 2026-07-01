@@ -351,7 +351,7 @@ const communityData = [
 const updateData = ref<UpdateLogType[] | null>(null);
 
 // 最新版本
-const newVersion = computed<UpdateLogType | undefined>(() => updateData.value?.[0]);
+// const newVersion = computed<UpdateLogType | undefined>(() => updateData.value?.[0]);
 
 // 历史版本
 const oldVersion = computed<UpdateLogType[]>(() => {
