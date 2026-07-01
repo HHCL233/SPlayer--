@@ -10,7 +10,8 @@
             <SvgIcon class="delete" name="Delete" @click.stop="deleteSearchHistory" />
           </div>
           <n-flex class="history-list">
-            <n-tag
+            <n-button
+              quaternary
               v-for="(item, index) in dataStore.searchHistory"
               :key="index"
               :bordered="false"
@@ -18,7 +19,7 @@
               @click="emit('toSearch', item)"
             >
               {{ item.length > 10 ? item.slice(0, 10) + "..." : item }}
-            </n-tag>
+            </n-button>
           </n-flex>
         </div>
         <!-- 热搜榜 -->

@@ -37,7 +37,8 @@
     <!-- 菜单 -->
     <Transition name="fade" mode="out-in">
       <n-flex :key="videoData?.id" class="menu" justify="space-between" align="center">
-        <div
+        <n-button
+          quaternary
           class="artist"
           @click="
             router.push({
@@ -53,7 +54,7 @@
             round
           />
           <n-text class="name">{{ artistData?.name || "未知歌手" }}</n-text>
-        </div>
+        </n-button>
         <n-flex class="control">
           <!-- 点赞 -->
           <n-button :focusable="false" quaternary>
@@ -108,6 +109,7 @@
         </n-h3>
         <n-flex class="tag">
           <n-tag
+            disabled
             v-for="(item, key, index) in commentText"
             :key="index"
             :bordered="false"
@@ -420,8 +422,8 @@ onUnmounted(() => {
     .artist {
       display: flex;
       align-items: center;
-      margin-left: 8px;
       cursor: pointer;
+      height: 48px;
       .cover {
         margin-right: 12px;
         width: 40px;
@@ -432,12 +434,6 @@ onUnmounted(() => {
         flex-direction: column;
         font-size: 16px;
         font-weight: bold;
-        &::after {
-          content: "查看详情";
-          font-size: 12px;
-          font-weight: normal;
-          opacity: 0.6;
-        }
       }
     }
     .n-button {

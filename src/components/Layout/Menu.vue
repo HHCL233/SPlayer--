@@ -223,7 +223,7 @@ const menuOptions = computed<MenuOption[] | MenuGroupOption[]>(() => {
                 {
                   options: [
                     { label: "在线歌单", value: "online" },
-                    { label: "本地歌单", value: "local" },
+                    ...(isElectron ? [{ label: "本地歌单", value: "local" }] : []),
                   ],
                   value: statusStore.playlistMode,
                   trigger: "click",

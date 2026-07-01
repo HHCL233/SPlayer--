@@ -35,6 +35,8 @@ defineProps({
 
 <style lang="scss" scoped>
 svg {
+  cursor: pointer;
+  -webkit-app-region: no-drag;
   path {
     &:nth-of-type(1) {
       fill: rgba(var(--primary), 0.29);

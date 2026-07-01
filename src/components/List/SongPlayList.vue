@@ -191,7 +191,7 @@ const playListData = computed(() => {
 
 // 滚动至指定元素
 const scrollToItem = (index: number) => {
-  playListRef.value?.scrollToIndex(index);
+  playListRef.value?.scrollToIndex(index, "smooth");
 };
 
 // 清空播放列表

@@ -13,22 +13,6 @@
         </n-flex>
         <n-flex>
           <n-button
-            type="primary"
-            strong
-            secondary
-            @click="openLink('https://github.com/HHCL233/SPlayer')"
-          >
-            前往SPlayer--仓库
-          </n-button>
-          <n-button
-            type="primary"
-            strong
-            secondary
-            @click="openLink('https://github.com/SPlayer-Dev/SPlayer')"
-          >
-            前往SPlayer仓库
-          </n-button>
-          <n-button
             :loading="statusStore.updateCheck"
             type="primary"
             v-if="isElectron"
