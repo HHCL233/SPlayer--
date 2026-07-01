@@ -215,4 +215,4 @@
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=imsyy/SPlayer&type=Date)](https://star-history.com/#HHCL233/SPlayer&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=HHCL233/SPlayer&type=Date)](https://star-history.com/#HHCL233/SPlayer&Date)
