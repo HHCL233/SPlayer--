@@ -523,6 +523,7 @@ onMounted(() => {
       settingStore.menuExpandedKeys.push("local-playlists");
     }
   }
+  checkMenuItem();
 });
 
 // 监听路由

@@ -52,7 +52,7 @@
     >
       <!-- 侧边栏 -->
       <n-layout-sider
-        v-if="isDesktop"
+        v-show="isDesktop"
         id="main-sider"
         :style="{
           height:
