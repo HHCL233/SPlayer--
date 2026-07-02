@@ -85,9 +85,8 @@
             <n-button
               :loading="statusStore.playLoading"
               class="play-btn"
-              type="primary"
               strong
-              secondary
+              quaternary
               circle
               @click.stop="player.playOrPause()"
             >
@@ -374,13 +373,14 @@ const contentTransform = computed(() => {
               display: flex;
               align-items: center;
               justify-content: center;
-              width: 40px;
-              height: 40px;
+              width: 35px;
+              height: 35px;
               border-radius: 50%;
               cursor: pointer;
               transition: background-color 0.2s;
+              background-color: rgba(255, 255, 255, 0.075);
               &:active {
-                background-color: rgba(255, 255, 255, 0.1);
+                background-color: rgba(255, 255, 255, 0.2);
               }
               .n-icon {
                 color: rgb(var(--main-cover-color));
@@ -455,7 +455,6 @@ const contentTransform = computed(() => {
             justify-content: center;
             cursor: pointer;
             transition: transform 0.2s;
-            background-color: rgba(var(--main-cover-color), 0.2);
             color: rgb(var(--main-cover-color));
             &.n-button--primary-type {
               --n-color: rgba(var(--main-cover-color), 0.14);

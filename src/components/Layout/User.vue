@@ -85,7 +85,7 @@
             <SvgIcon name="Close" />
           </div>
         </div>
-        <n-button class="add-account" ghost block @click="handleAddAccount">
+        <n-button class="add-account" ghost round @click="handleAddAccount">
           <template #icon>
             <SvgIcon name="Add" />
           </template>
@@ -378,9 +378,6 @@ onBeforeMount(() => {
           opacity: 1;
         }
       }
-    }
-    .add-account {
-      border-radius: 8px;
     }
   }
   .n-divider {
