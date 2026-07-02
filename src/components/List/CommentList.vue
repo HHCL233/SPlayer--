@@ -276,7 +276,6 @@ const handleHug = debounce(async (item: CommentType) => {
       .content {
         .name {
           font-weight: bold;
-          cursor: pointer;
           &:hover {
             color: var(--primary-hex);
           }

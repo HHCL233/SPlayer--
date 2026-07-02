@@ -57,14 +57,14 @@
         </n-button>
         <n-flex class="control">
           <!-- 点赞 -->
-          <n-button :focusable="false" quaternary>
+          <n-button :focusable="false" quaternary disabled>
             <template #icon>
               <SvgIcon :name="videoData?.liked ? 'ThumbUp' : 'ThumbUpOff'" />
             </template>
             {{ formatNumber(videoData?.likedCount || 0) }}
           </n-button>
           <!-- 收藏 -->
-          <n-button :focusable="false" quaternary>
+          <n-button :focusable="false" quaternary disabled>
             <template #icon>
               <SvgIcon name="Favorite" />
               <!-- FavoriteBorder -->
@@ -72,7 +72,7 @@
             {{ formatNumber(videoData?.subCount || 0) }}
           </n-button>
           <!-- 分享 -->
-          <n-button :focusable="false" quaternary>
+          <n-button :focusable="false" quaternary disabled>
             <template #icon>
               <SvgIcon name="Share" />
               <!-- FavoriteBorder -->
