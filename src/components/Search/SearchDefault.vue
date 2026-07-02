@@ -10,16 +10,20 @@
             <SvgIcon class="delete" name="Delete" @click.stop="deleteSearchHistory" />
           </div>
           <n-flex class="history-list">
-            <n-button
-              quaternary
+            <n-button-group
+              size="small"
               v-for="(item, index) in dataStore.searchHistory"
               :key="index"
-              :bordered="false"
-              round
-              @click="emit('toSearch', item)"
             >
-              {{ item.length > 10 ? item.slice(0, 10) + "..." : item }}
-            </n-button>
+              <n-button quaternary :bordered="false" round @click="emit('toSearch', item)">
+                {{ item.length > 10 ? item.slice(0, 10) + "..." : item }}
+              </n-button>
+              <n-button :bordered="false" quaternary circle @click="deleteSearchHistoryItem(item)">
+                <template #icon>
+                  <SvgIcon name="Close" />
+                </template>
+              </n-button>
+            </n-button-group>
           </n-flex>
         </div>
         <!-- 热搜榜 -->
@@ -126,6 +130,12 @@ const deleteSearchHistory = () => {
       dataStore.searchHistory = [];
     },
   });
+};
+
+// 删除指定搜索历史
+const deleteSearchHistoryItem = (item: string) => {
+  dataStore.searchHistory.splice(dataStore.searchHistory.indexOf(item), 1);
+  window.$message.info(`已删除搜索历史 ${item}`);
 };
 
 onMounted(() => {

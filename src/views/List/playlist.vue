@@ -260,6 +260,8 @@ const getPlaylistDetail = async (
   options: { getList: boolean; refresh: boolean } = { getList: true, refresh: false },
 ) => {
   if (!id) return;
+  // 重置当前页面
+  currentTab.value = "songs";
   // 设置当前请求的歌单 ID，用于防止竞态条件
   currentRequestId.value = id;
   // 设置加载状态
