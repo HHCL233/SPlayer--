@@ -84,7 +84,6 @@
             <SvgIcon name="WindowMinimize" />
           </template>
         </n-button>
-        <div class="min-expanded-area"></div>
       </div>
       <div class="max-button-wrapper" @click="maxOrRes" :title="isMax ? '还原' : '最大化'">
         <n-button
@@ -98,7 +97,6 @@
             <SvgIcon :name="isMax ? 'WindowRestore' : 'WindowMaximize'" />
           </template>
         </n-button>
-        <div class="max-expanded-area"></div>
       </div>
       <div class="close-button-wrapper" @click="tryClose" title="关闭">
         <n-button :focusable="false" title="关闭" tertiary circle @click.stop="tryClose">
@@ -106,7 +104,6 @@
             <SvgIcon name="WindowClose" />
           </template>
         </n-button>
-        <div class="close-expanded-area"></div>
       </div>
     </n-flex>
     <!-- 关闭弹窗 -->
