@@ -42,7 +42,7 @@
               {{ artistDetailData.identify }}
             </n-text>
             <!-- 信息 -->
-            <n-flex class="meta">
+            <div class="meta">
               <div
                 class="item"
                 @click="router.push({ name: 'artist-songs', query: { id: artistId } })"
@@ -64,7 +64,7 @@
                 <SvgIcon name="Video" :depth="3" />
                 <n-text>{{ artistDetailData.mvSize || 0 }}</n-text>
               </div>
-            </n-flex>
+            </div>
             <!-- 简介 -->
             <n-text
               v-if="artistDetailData.description"
@@ -291,9 +291,15 @@ watch(
   flex-direction: column;
   height: 100%;
   .detail {
+    @media (max-width: 450px) and (max-height: 700px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
     display: flex;
     height: 240px;
     width: 100%;
+    aspect-ratio: 1 / 1;
     padding: 12px 0 30px 0;
     will-change: height, opacity;
     z-index: 1;
@@ -308,6 +314,9 @@ watch(
       aspect-ratio: 1 / 1;
       margin-right: 20px;
       border-radius: 50%;
+      @media (max-width: 450px) and (max-height: 700px) {
+        display: none;
+      }
       transition:
         opacity 0.3s,
         margin 0.3s,
@@ -347,9 +356,15 @@ watch(
       }
     }
     .data {
+      @media (max-width: 450px) and (max-height: 700px) {
+        align-items: center !important;
+        text-align: center !important;
+        padding-right: 0px !important;
+      }
       position: relative;
       display: flex;
       flex-direction: column;
+
       flex: 1;
       padding-right: 60px;
       :deep(.n-skeleton) {
@@ -363,11 +378,15 @@ watch(
         }
       }
       .description {
+        margin-top: 8px;
         margin-bottom: 8px;
         padding-left: 4px;
         cursor: pointer;
       }
       .name {
+        @media (max-width: 450px) and (max-height: 700px) {
+          font-size: 32px !important;
+        }
         font-size: 30px;
         font-weight: bold;
         height: 48px;
@@ -389,6 +408,10 @@ watch(
         font-size: 16px;
         margin-bottom: 8px;
         padding-left: 4px;
+        @media (max-width: 450px) and (max-height: 700px) {
+          padding-left: 0px !important;
+          text-align: center !important;
+        }
       }
       .collapse {
         position: absolute;
@@ -396,7 +419,13 @@ watch(
         margin: 8px 0;
       }
       .meta {
-        margin-bottom: 8px;
+        @media (max-width: 450px) and (max-height: 700px) {
+          justify-content: center !important;
+        }
+        display: flex;
+        flex-flow: wrap;
+        justify-content: start;
+        gap: 12px;
         .item {
           display: flex;
           align-items: center;
@@ -408,6 +437,9 @@ watch(
         }
       }
       .menu {
+        @media (max-width: 520px) and (max-height: 700px) {
+          display: none !important;
+        }
         position: absolute;
         left: 0;
         bottom: 0;
