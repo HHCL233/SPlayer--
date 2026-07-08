@@ -257,6 +257,7 @@ const contentTransform = computed(() => {
   flex-direction: column;
   box-sizing: border-box;
   .top-bar {
+    -webkit-app-region: drag;
     position: absolute;
     width: 100%;
     height: 60px;
@@ -268,6 +269,7 @@ const contentTransform = computed(() => {
     padding: 16px;
     z-index: 10;
     .btn {
+      -webkit-app-region: no-drag;
       width: 40px;
       height: 40px;
       border-radius: 50%;
