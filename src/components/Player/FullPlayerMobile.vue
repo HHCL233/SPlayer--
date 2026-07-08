@@ -288,13 +288,13 @@ const contentTransform = computed(() => {
   }
   .mobile-content {
     flex: 1;
-    padding: 0 24px;
     display: flex;
     width: 200%;
     height: 100%;
     align-items: center;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     gap: 24px;
+    padding: 0 12px;
     &.swiping {
       transition: none;
     }
@@ -308,7 +308,6 @@ const contentTransform = computed(() => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 24px 40px 24px;
       overflow-y: auto;
       .cover-section {
         flex: 1;
@@ -318,6 +317,9 @@ const contentTransform = computed(() => {
         justify-content: center;
         margin-top: 60px;
         margin-bottom: 20px;
+        @media (max-width: 450px) and (max-height: 700px) {
+          margin-bottom: 0px !important;
+        }
         :deep(.player-cover) {
           width: min(100%, 45vh);
           // height: min(85vw, 45vh);
@@ -471,7 +473,6 @@ const contentTransform = computed(() => {
     }
     .lyric-page {
       width: 50%;
-      padding: 0 24px;
       padding-top: 60px;
       display: flex;
       flex-direction: column;

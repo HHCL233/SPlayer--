@@ -128,7 +128,7 @@ class MainWindow {
       width,
       height,
       minHeight: 600,
-      minWidth: 800,
+      minWidth: 350,
       show: false,
     });
     if (!this.win) return null;

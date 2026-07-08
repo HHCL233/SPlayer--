@@ -303,6 +303,9 @@ const jumpToRadio = debounce(
     .name-text {
       font-size: 26px;
       font-weight: bold;
+      @media (max-width: 450px) and (max-height: 700px) {
+        font-size: 24px !important;
+      }
     }
     .n-icon {
       margin-left: 12px;
@@ -322,6 +325,9 @@ const jumpToRadio = debounce(
     align-items: center;
     .n-icon {
       margin-right: 4px;
+      @media (max-width: 450px) and (max-height: 700px) {
+        display: none !important;
+      }
     }
     .ar-list {
       display: -webkit-box;
@@ -332,6 +338,9 @@ const jumpToRadio = debounce(
       word-break: break-all;
       .ar {
         font-size: 16px;
+        @media (max-width: 450px) and (max-height: 700px) {
+          font-size: 14px !important;
+        }
         opacity: 0.7;
         display: inline-flex;
         transition: opacity 0.3s;
@@ -357,6 +366,9 @@ const jumpToRadio = debounce(
     font-size: 16px;
     display: flex;
     align-items: center;
+    @media (max-width: 450px) and (max-height: 700px) {
+      display: none !important;
+    }
     .n-icon {
       margin-right: 4px;
     }
@@ -374,6 +386,9 @@ const jumpToRadio = debounce(
   .play-meta {
     padding: 4px 4px;
     opacity: 0.6;
+    @media (max-width: 450px) and (max-height: 700px) {
+      display: none !important;
+    }
     .meta-item {
       font-size: 12px;
       border-radius: 8px;
@@ -441,5 +456,8 @@ const jumpToRadio = debounce(
   color: rgb(var(--main-cover-color));
   background-color: rgba(var(--main-cover-color), 0.18);
   backdrop-filter: blur(10px);
+  @media (max-width: 450px) and (max-height: 700px) {
+    display: none !important;
+  }
 }
 </style>
