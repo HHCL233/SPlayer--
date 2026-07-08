@@ -169,7 +169,9 @@
                 {{ playButtonText }}
               </n-button>
               <!-- 自定义按钮插槽 -->
-              <slot name="action-buttons" :detail-data="detailData" />
+              <div class="action-buttons">
+                <slot name="action-buttons" :detail-data="detailData" />
+              </div>
               <!-- 更多操作 -->
               <n-dropdown
                 v-if="moreOptions?.length"
@@ -466,6 +468,9 @@ const handleTabChange = (value: "songs" | "comments") => {
         .item {
           display: flex;
           align-items: center;
+          @media (max-width: 450px) and (max-height: 700px) {
+            display: none !important;
+          }
           .n-icon {
             font-size: 20px;
             margin-right: 4px;
@@ -525,6 +530,13 @@ const handleTabChange = (value: "songs" | "comments") => {
           transition: all 0.3s var(--n-bezier);
           &.n-input--focus {
             width: 200px;
+          }
+        }
+        .left {
+          .action-buttons {
+            @media (max-width: 450px) and (max-height: 700px) {
+              display: none !important;
+            }
           }
         }
         .tabs {
