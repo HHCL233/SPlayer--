@@ -51,6 +51,12 @@
             src="/images/vip.png?asset"
           />
         </n-flex>
+        <n-button round ghost class="open-user-link" @click="openUserLink">
+          <template #icon>
+            <SvgIcon name="Link" />
+          </template>
+          个人中心
+        </n-button>
       </n-flex>
       <n-divider />
       <!-- 喜欢数量 -->
@@ -252,6 +258,12 @@ const isLogout = () => {
   });
 };
 
+// 打开个人中心
+const openUserLink = () => {
+  const dataStore = JSON.parse(window.localStorage.getItem("data-store") ?? "{}");
+  window.open(`https://music.163.com/#/user/home?id=${dataStore?.userData?.userId ?? 0}`);
+};
+
 onBeforeMount(() => {
   checkLoginStatus();
 });
@@ -318,6 +330,8 @@ onBeforeMount(() => {
       height: 18px;
       font-size: 12px;
       pointer-events: none;
+    }
+    .open-user-link {
     }
   }
   .like-num {
