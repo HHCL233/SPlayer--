@@ -422,6 +422,11 @@ onUnmounted(() => {
   .menu {
     height: 40px;
     margin: 20px 0;
+    .control {
+      @media (max-width: 420px) {
+        display: none !important;
+      }
+    }
     .artist {
       display: flex;
       align-items: center;

@@ -189,6 +189,9 @@ onBeforeUnmount(() => {
   }
 }
 .lyric-menu {
+  @media (max-width: 400px) {
+    display: none !important;
+  }
   position: absolute;
   pointer-events: none;
   top: 0;

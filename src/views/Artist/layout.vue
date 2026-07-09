@@ -291,7 +291,7 @@ watch(
   flex-direction: column;
   height: 100%;
   .detail {
-    @media (max-width: 450px) and (max-height: 700px) {
+    @media (max-width: 450px) {
       flex-direction: column;
       align-items: center;
       text-align: center;
@@ -314,7 +314,7 @@ watch(
       aspect-ratio: 1 / 1;
       margin-right: 20px;
       border-radius: 50%;
-      @media (max-width: 450px) and (max-height: 700px) {
+      @media (max-width: 450px) {
         display: none;
       }
       transition:
@@ -356,7 +356,7 @@ watch(
       }
     }
     .data {
-      @media (max-width: 450px) and (max-height: 700px) {
+      @media (max-width: 450px) {
         align-items: center !important;
         text-align: center !important;
         padding-right: 0px !important;
@@ -384,7 +384,7 @@ watch(
         cursor: pointer;
       }
       .name {
-        @media (max-width: 450px) and (max-height: 700px) {
+        @media (max-width: 450px) {
           font-size: 32px !important;
         }
         font-size: 30px;
@@ -408,7 +408,7 @@ watch(
         font-size: 16px;
         margin-bottom: 8px;
         padding-left: 4px;
-        @media (max-width: 450px) and (max-height: 700px) {
+        @media (max-width: 450px) {
           padding-left: 0px !important;
           text-align: center !important;
         }
@@ -419,7 +419,7 @@ watch(
         margin: 8px 0;
       }
       .meta {
-        @media (max-width: 450px) and (max-height: 700px) {
+        @media (max-width: 450px) {
           justify-content: center !important;
         }
         display: flex;
@@ -437,7 +437,7 @@ watch(
         }
       }
       .menu {
-        @media (max-width: 520px) and (max-height: 700px) {
+        @media (max-width: 520px) {
           display: none !important;
         }
         position: absolute;

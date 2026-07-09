@@ -295,7 +295,7 @@ const contentTransform = computed(() => {
     height: 100%;
     align-items: center;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    gap: 24px;
+    gap: 12px;
     padding: 0 12px;
     &.swiping {
       transition: none;
@@ -474,6 +474,7 @@ const contentTransform = computed(() => {
       }
     }
     .lyric-page {
+      padding-left: 12px;
       width: 50%;
       padding-top: 60px;
       display: flex;

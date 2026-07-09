@@ -468,7 +468,7 @@ const handleTabChange = (value: "songs" | "comments") => {
         .item {
           display: flex;
           align-items: center;
-          @media (max-width: 450px) and (max-height: 700px) {
+          @media (max-width: 450px) {
             display: none !important;
           }
           .n-icon {
@@ -534,7 +534,7 @@ const handleTabChange = (value: "songs" | "comments") => {
         }
         .left {
           .action-buttons {
-            @media (max-width: 450px) and (max-height: 700px) {
+            @media (max-width: 450px) {
               display: none !important;
             }
           }
