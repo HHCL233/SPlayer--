@@ -292,6 +292,15 @@ export const useSongMenu = () => {
             icon: renderIcon("Share", { size: 18 }),
           },
           {
+            key: "open-link",
+            label: `打开${type === "song" ? "歌曲" : "节目"}链接`,
+            show: !isLocal && type !== "streaming",
+            props: {
+              onClick: () => window.open(getShareUrl(type, song.id), "已复制分享链接到剪贴板"),
+            },
+            icon: renderIcon("Link", { size: 18 }),
+          },
+          {
             key: "line-2",
             type: "divider",
             show: settingStore.contextMenuOptions.musicTagEditor && isLocal,

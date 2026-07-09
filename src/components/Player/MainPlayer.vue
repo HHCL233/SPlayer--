@@ -338,6 +338,15 @@ const songMoreOptions = computed<DropdownOption[]>(() => {
           },
           icon: renderIcon("Share", { size: 18 }),
         },
+        {
+          key: "open-link",
+          label: `打开${song.type === "song" ? "歌曲" : "节目"}链接`,
+          show: !isLocal,
+          props: {
+            onClick: () => window.open(getShareUrl(song.type, song.id), "已复制分享链接到剪切板"),
+          },
+          icon: renderIcon("Link", { size: 18 }),
+        },
       ],
     },
     {

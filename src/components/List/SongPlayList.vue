@@ -6,8 +6,9 @@
     :auto-focus="false"
     id="main-playlist"
     style="width: 400px"
+    resizable
   >
-    <n-drawer-content :native-scrollbar="false" closable>
+    <n-drawer-content :native-scrollbar="false" closable class="main-playlist-content">
       <template #header>
         <div class="playlist-header">
           <n-text class="name">播放队列</n-text>
@@ -425,8 +426,17 @@ const {
 <style lang="scss">
 #main-playlist {
   --n-border-radius: 12px;
+  @media (max-width: 400px) {
+    width: 100% !important;
+  }
   .n-drawer-header {
     height: 70px;
+    @media (max-width: 400px) {
+      -webkit-app-region: drag;
+    }
+    button {
+      -webkit-app-region: no-drag;
+    }
   }
   .n-scrollbar-content {
     padding: 0;
