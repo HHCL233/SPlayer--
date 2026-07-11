@@ -314,6 +314,9 @@ const jumpToRadio = debounce(
     }
   }
   .alia {
+    @media (max-width: 450px) and (max-height: 700px) {
+      display: none !important;
+    }
     margin: 6px 0 6px 4px;
     opacity: 0.6;
     font-size: 18px;

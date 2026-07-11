@@ -229,6 +229,10 @@ onMounted(() => {
     width: 200px;
     height: 40px;
     border-radius: 50px;
+    @media (max-width: 400px) {
+      width: 40px !important;
+      cursor: pointer;
+    }
     transition:
       background-color 0.3s var(--n-bezier),
       width 0.3s var(--n-bezier);
@@ -241,6 +245,11 @@ onMounted(() => {
   &.focus {
     .search-input {
       width: 300px;
+      @media (max-width: 400px) {
+        width: 300px !important;
+        opacity: 1;
+        cursor: text;
+      }
     }
   }
   @media (max-width: 768px) {
