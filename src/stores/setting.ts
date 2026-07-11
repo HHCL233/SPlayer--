@@ -482,6 +482,12 @@ export interface SettingState {
       enabled: boolean;
     };
   };
+  /** 启用CBot联动 */
+  cbot: boolean;
+  /** CBotIP */
+  cbotIp: string;
+  /** CBot群号 */
+  cbotQroupId: string;
 }
 
 export const useSettingStore = defineStore("setting", {
@@ -751,6 +757,9 @@ export const useSettingStore = defineStore("setting", {
         enabled: false,
       },
     },
+    cbot: true,
+    cbotIp: "127.0.0.1",
+    cbotQroupId: "0",
   }),
   getters: {
     /**

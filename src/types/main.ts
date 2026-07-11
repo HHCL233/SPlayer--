@@ -333,6 +333,7 @@ export type SettingType =
   | "keyboard"
   | "local"
   | "network"
+  | "cbot"
   | "about";
 
 // UpdateLog

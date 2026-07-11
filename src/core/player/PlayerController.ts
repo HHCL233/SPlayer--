@@ -1246,6 +1246,7 @@ class PlayerController {
     const dataStore = useDataStore();
     const musicStore = useMusicStore();
     const statusStore = useStatusStore();
+    const settingStore = useSettingStore();
     const wasPersonalFm = statusStore.personalFmMode;
     // 关闭特殊模式
     if (statusStore.personalFmMode) statusStore.personalFmMode = false;
@@ -1261,6 +1262,23 @@ class PlayerController {
     const newCurrentIndex = dataStore.playList.findIndex((s) => s.id === currentSongId);
     if (newCurrentIndex !== -1 && newCurrentIndex !== statusStore.playIndex) {
       statusStore.playIndex = newCurrentIndex;
+    }
+    // 向CBot请求
+    if (settingStore.cbot) {
+      fetch(`http://${settingStore.cbotIp}:8000/send/add_music`, {
+        method: "POST",
+        body: JSON.stringify({
+          group_id: settingStore.cbotQroupId,
+          music_name: song.name,
+          music_ar:
+            typeof song.artists == "object"
+              ? song.artists.map((item) => item.name).join(",")
+              : song.artists,
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
     }
     // 播放歌曲
     if (songIndex < 0) return;

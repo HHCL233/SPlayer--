@@ -113,6 +113,12 @@
             :groups="networkConfig.groups"
             :highlight-key="highlightKey"
           />
+          <!--CBot-->
+          <UniversalSetting
+            v-else-if="activeKey === 'cbot'"
+            :groups="cBotConfig.groups"
+            :highlight-key="highlightKey"
+          />
           <!-- 关于 -->
           <AboutSetting v-else-if="activeKey === 'about'" />
           <!-- 空白 -->
@@ -139,6 +145,7 @@ import { useLyricSettings } from "./config/lyric";
 import { useKeyboardSettings } from "./config/keyboard";
 import { useLocalSettings } from "./config/local";
 import { useNetworkSettings } from "./config/network";
+import { useCBotSettings } from "./config/cbot";
 // import packageJson from "@/../package.json";
 
 const props = defineProps<{ type: SettingType; scrollTo?: string }>();
@@ -150,6 +157,7 @@ const lyricConfig = useLyricSettings();
 const keyboardConfig = useKeyboardSettings();
 const localConfig = useLocalSettings();
 const networkConfig = useNetworkSettings();
+const cBotConfig = useCBotSettings();
 
 // 配置映射表
 const configs: Record<string, any> = {
@@ -330,6 +338,11 @@ const menuOptions: MenuOption[] = [
   {
     key: "network",
     label: "网络与连接",
+    icon: renderIcon("Link"),
+  },
+  {
+    key: "cbot",
+    label: "CBot联动",
     icon: renderIcon("Link"),
   },
   {
