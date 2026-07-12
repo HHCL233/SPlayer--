@@ -15,7 +15,7 @@
         <!-- 背景 -->
         <PlayerBackground />
         <!-- 移动端 -->
-        <FullPlayerMobile v-if="isTablet" />
+        <FullPlayerMobile v-if="isMobile" />
         <!-- 桌面端 -->
         <template v-else>
           <!-- 独立歌词 -->
@@ -101,7 +101,7 @@ const musicStore = useMusicStore();
 const statusStore = useStatusStore();
 const settingStore = useSettingStore();
 
-const { isTablet } = useMobile();
+const { isMobile } = useMobile();
 
 /** 封面主颜色 */
 const mainCoverColor = useCssVar("--main-cover-color", document.documentElement);
@@ -125,7 +125,7 @@ const showComment = computed<boolean>(
     statusStore.showPlayerComment &&
     !musicStore.playSong.path &&
     !statusStore.pureLyricMode &&
-    !isTablet.value,
+    !isMobile.value,
 );
 
 /** 评论显示模式 */
