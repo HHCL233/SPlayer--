@@ -1,5 +1,5 @@
 import { SettingConfig } from "@/types/settings";
-import { useSettingStore, useStatusStore } from "@/stores";
+import { useSettingStore } from "@/stores";
 import { computed } from "vue";
 
 export const useCBotSettings = (): SettingConfig => {
