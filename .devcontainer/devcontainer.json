@@ -1,0 +1,10 @@
+{
+  "name": "GUI Dev Environment",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "version": "latest",
+      "password": "vscode"
+    }
+  },
+  "forwardPorts": [6080, 5901]
+}
