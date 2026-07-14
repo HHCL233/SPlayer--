@@ -820,12 +820,13 @@ onBeforeUnmount(() => {
   flex-direction: column;
   height: 100%;
   color: #fff;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 12px;
   border-radius: 12px;
   overflow: hidden;
   transition: background-color 0.3s;
   cursor: default;
+  -webkit-app-region: drag;
   .header {
     position: relative;
     margin-bottom: 12px;
@@ -838,6 +839,7 @@ onBeforeUnmount(() => {
       min-width: 0;
     }
     .song-name {
+      opacity: 1;
       font-size: 1em;
       text-align: left;
       flex: 1 1 auto;
@@ -850,6 +852,8 @@ onBeforeUnmount(() => {
       transition: opacity 0.3s;
     }
     .menu-btn {
+      -webkit-app-region: no-drag;
+      opacity: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -881,7 +885,7 @@ onBeforeUnmount(() => {
     // 隐藏与显示
     .song-name,
     .menu-btn {
-      opacity: 0;
+      opacity: 1;
     }
     .play-title {
       position: absolute;
@@ -940,9 +944,7 @@ onBeforeUnmount(() => {
   .lyric-container {
     height: 100%;
     padding: 0 8px;
-    cursor: move;
     position: relative; // 相对定位，供子元素绝对定位参考
-
     .lyric-line {
       position: absolute; // 绝对定位
       width: 100%;
@@ -1071,24 +1073,18 @@ onBeforeUnmount(() => {
   .lyric-slide-leave-active {
     position: absolute;
   }
-  &.hovered {
-    &:not(.locked) {
-      background-color: rgba(0, 0, 0, 0.6);
-      .song-name,
-      .menu-btn {
-        opacity: 1;
-      }
-      .play-title {
-        opacity: 0;
-      }
-    }
-  }
   &.locked {
+    background-color: transparent;
     cursor: default;
+    -webkit-app-region: no-drag;
     .song-name,
     .menu-btn,
     .lyric-container {
       pointer-events: none;
+    }
+    .song-name,
+    .menu-btn {
+      opacity: 0;
     }
     &.hovered {
       .lock-btn {
