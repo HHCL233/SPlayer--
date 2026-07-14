@@ -390,6 +390,7 @@ audio {
 
 .n-card.n-modal {
   background: color-mix(in srgb, var(--n-color-modal) 50%, transparent);
+  backdrop-filter: blur(6px);
 }
 
 .n-dropdown-menu {
