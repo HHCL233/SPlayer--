@@ -225,6 +225,10 @@ onMounted(() => {
   transition:
     left 0.3s,
     width 0.3s;
+  @media (max-width: 400px) {
+    width: 40px !important;
+    cursor: pointer;
+  }
   .search-input {
     width: 200px;
     height: 40px;

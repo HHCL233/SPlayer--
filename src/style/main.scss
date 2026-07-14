@@ -412,3 +412,42 @@ audio {
   background: color-mix(in srgb, var(--n-color) 75%, transparent);
   backdrop-filter: blur(6px);
 }
+
+.n-image-preview-toolbar {
+  backdrop-filter: blur(6px);
+}
+
+.n-card {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-message {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-float-button {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-list {
+  background: color-mix(in srgb, var(--n-merged-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+  border-radius: 4px;
+}
+
+@media (max-width: 400px) {
+  .n-modal {
+    margin: 0 !important;
+    max-width: none !important;
+    width: 100vh !important;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+button {
+  -webkit-app-region: no-drag;
+}

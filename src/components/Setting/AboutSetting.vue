@@ -11,7 +11,7 @@
             {{ packageJson.version }}
           </n-tag>
         </n-flex>
-        <n-flex>
+        <n-flex class="about-operate">
           <n-button
             :loading="statusStore.updateCheck"
             type="primary"
@@ -411,6 +411,10 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.set-item .n-flex.about-operate.about-operate {
+  flex-flow: column !important;
+  flex-direction: column !important;
+}
 .about {
   .logo-name {
     font-size: 16px;

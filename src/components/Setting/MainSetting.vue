@@ -368,6 +368,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .setting {
+  @media (max-width: 400px) {
+    height: 100vh !important;
+  }
   position: relative;
   display: flex;
   width: 100%;
