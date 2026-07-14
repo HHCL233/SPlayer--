@@ -292,11 +292,24 @@ export const useSongMenu = () => {
             icon: renderIcon("Share", { size: 18 }),
           },
           {
+            key: "copy-share",
+            label: `复制分享文案`,
+            show: !isLocal && type !== "streaming",
+            props: {
+              onClick: () =>
+                copyData(
+                  `分享${typeof song.artists == "string" ? song.artists : song.artists.map((item) => item.name).join("，")}的单曲《${song.name}》: ${getShareUrl(type, song.id)} (来自@SPlayer--)`,
+                  "已复制分享文案到剪贴板",
+                ),
+            },
+            icon: renderIcon("Copy", { size: 18 }),
+          },
+          {
             key: "open-link",
             label: `打开${type === "song" ? "歌曲" : "节目"}链接`,
             show: !isLocal && type !== "streaming",
             props: {
-              onClick: () => window.open(getShareUrl(type, song.id), "已复制分享链接到剪贴板"),
+              onClick: () => window.open(getShareUrl(type, song.id), "已打开链接"),
             },
             icon: renderIcon("Link", { size: 18 }),
           },
