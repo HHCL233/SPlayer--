@@ -383,7 +383,8 @@ onMounted(() => {
     width: 280px;
     height: 100%;
     padding: 20px;
-    background-color: var(--surface-container-hex);
+    background: color-mix(in srgb, var(--surface-container-hex) 75%, transparent);
+    backdrop-filter: blur(6px);
     .title {
       height: 60px;
       margin: 10px 0 20px 10px;
@@ -414,7 +415,8 @@ onMounted(() => {
   .set-right {
     flex: 1;
     height: 100%;
-    background-color: var(--background-hex);
+    background: color-mix(in srgb, var(--background-hex) 50%, transparent);
+    backdrop-filter: blur(6px);
     .mobile-title {
       display: none !important;
     }

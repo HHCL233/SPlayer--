@@ -145,6 +145,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .search-default {
+  backdrop-filter: blur(6px);
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
   position: absolute;
   left: 0;
   top: 50px;

@@ -273,7 +273,7 @@ onBeforeMount(() => {
 .user {
   display: flex;
   align-items: center;
-  height: 38px;
+  height: 40px;
   border-radius: 25px;
   background-color: rgba(var(--primary), 0.08);
   transition: background-color 0.3s;
@@ -283,9 +283,9 @@ onBeforeMount(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
     border-radius: 50%;
     border: 2px solid rgba(var(--primary), 0.28);
     .n-avatar {

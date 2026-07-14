@@ -187,6 +187,8 @@ const addToLocalPlaylist = debounce(
 
 <style lang="scss" scoped>
 .playlists-list {
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--n-merged-color) 50%, transparent);
   .playlist {
     border-radius: 8px;
     :deep(.n-list-item__prefix) {

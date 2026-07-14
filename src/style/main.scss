@@ -43,7 +43,7 @@
     .n-float-button {
       background-color: rgba(var(--background), 0.2) !important;
       border-color: rgba(var(--primary), 0.1) !important;
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(1px);
     }
     .n-list {
       --n-merged-color-hover: rgba(var(--background), 0.2) !important;
@@ -386,4 +386,28 @@ audio {
       }
     }
   }
+}
+
+.n-card.n-modal {
+  background: color-mix(in srgb, var(--n-color-modal) 50%, transparent);
+}
+
+.n-dropdown-menu {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-base-select-menu {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-popover:not(.n-popover--raw) {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-drawer {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
 }
