@@ -16,7 +16,6 @@
 <script setup lang="ts">
 import type { SongType } from "@/types/main";
 import { type DropdownOption } from "naive-ui";
-import { getPlayerInfoObj } from "@/utils/format";
 import { useSongMenu } from "@/composables/useSongMenu";
 
 const props = defineProps<{ hiddenCover?: boolean }>();
@@ -42,8 +41,6 @@ const openDropdown = (
   try {
     e.preventDefault();
     dropdownShow.value = false;
-    // 当前歌曲信息
-    const songData = getPlayerInfoObj(song);
     // 生成基础菜单选项
     const baseOptions = getMenuOptions(
       song,
