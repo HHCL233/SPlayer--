@@ -15,9 +15,8 @@
 
 <script setup lang="ts">
 import type { SongType } from "@/types/main";
-import { NFlex, NText, type DropdownOption } from "naive-ui";
+import { type DropdownOption } from "naive-ui";
 import { getPlayerInfoObj } from "@/utils/format";
-import SImage from "../UI/s-image.vue";
 import { useSongMenu } from "@/composables/useSongMenu";
 
 const props = defineProps<{ hiddenCover?: boolean }>();
