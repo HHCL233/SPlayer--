@@ -339,11 +339,24 @@ const songMoreOptions = computed<DropdownOption[]>(() => {
           icon: renderIcon("Share", { size: 18 }),
         },
         {
+          key: "copy-share",
+          label: `复制分享文案`,
+          show: !isLocal,
+          props: {
+            onClick: () =>
+              copyData(
+                `分享${typeof song.artists == "string" ? song.artists : song.artists.map((item) => item.name).join("，")}的单曲《${song.name}》: ${getShareUrl(song.type, song.id)} (来自@SPlayer--)`,
+                "已复制分享文案到剪贴板",
+              ),
+          },
+          icon: renderIcon("Copy", { size: 18 }),
+        },
+        {
           key: "open-link",
           label: `打开${song.type === "song" ? "歌曲" : "节目"}链接`,
           show: !isLocal,
           props: {
-            onClick: () => window.open(getShareUrl(song.type, song.id), "已复制分享链接到剪切板"),
+            onClick: () => window.open(getShareUrl(song.type, song.id), "已打开链接"),
           },
           icon: renderIcon("Link", { size: 18 }),
         },
