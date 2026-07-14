@@ -53,57 +53,8 @@ const openDropdown = (
       isDailyRecommend,
       (event, args) => emit(event, args),
     );
-    // 头部信息
-    const headerOption: DropdownOption = {
-      key: "data",
-      type: "render",
-      render: () =>
-        h(
-          NFlex,
-          {
-            align: "center",
-            wrap: false,
-            class: "song-list-card",
-            justify: props.hiddenCover ? "center" : undefined,
-          },
-          {
-            default: () => {
-              const list = [
-                h(
-                  NFlex,
-                  {
-                    vertical: true,
-                    size: 0,
-                    align: props.hiddenCover ? "center" : undefined,
-                  },
-                  {
-                    default: () => [
-                      h(
-                        NText,
-                        { class: "text-hidden", depth: 1 },
-                        { default: () => songData?.name },
-                      ),
-                      h(
-                        NText,
-                        { depth: 3, class: "text-hidden", style: { fontSize: "12px" } },
-                        { default: () => songData?.artist },
-                      ),
-                    ],
-                  },
-                ),
-              ];
-              if (!props.hiddenCover) list.unshift(h(SImage, { src: song.coverSize?.s }));
-              return list;
-            },
-          },
-        ),
-    };
     nextTick().then(() => {
-      dropdownOptions.value = [
-        headerOption,
-        { key: "header-line", type: "divider" },
-        ...baseOptions,
-      ];
+      dropdownOptions.value = [...baseOptions];
       // 显示菜单
       dropdownX.value = e.clientX;
       dropdownY.value = e.clientY;
