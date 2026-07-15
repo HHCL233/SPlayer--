@@ -263,7 +263,7 @@ onMounted(() => {
     }
     &.focus {
       left: -52px;
-      width: calc(100% + 52px);
+      width: calc(100% + 52px) !important;
       .search-input {
         width: 100%;
       }
