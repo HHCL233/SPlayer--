@@ -186,6 +186,10 @@ const addToLocalPlaylist = debounce(
 </script>
 
 <style lang="scss" scoped>
+.playlist-add {
+  border-radius: 8px;
+}
+
 .playlists-list {
   border-radius: 8px;
   background: color-mix(in srgb, var(--n-merged-color) 50%, transparent);

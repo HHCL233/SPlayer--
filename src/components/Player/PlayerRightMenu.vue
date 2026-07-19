@@ -251,7 +251,7 @@ watch([() => dataStore.userData.vipType, () => settingStore.disableAiAudio], asy
     border-radius: 8px;
     cursor: pointer;
   }
-  @media (max-width: 810px) {
+  @media (max-width: 912px) {
     .hidden {
       display: none;
     }

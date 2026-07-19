@@ -247,7 +247,10 @@ const getContributors = async () => {
         .filter((item: any) => item.login !== "type-bot" && item.type !== "Bot")
         .map((item: any) => ({
           name: item.login || item.name,
-          role: item.login === "imsyy" ? "Owner / Full Stack" : "Contributor",
+          role:
+            item.login === "imsyy" || item.login === "HHCL233"
+              ? "Owner / Full Stack"
+              : "Contributor",
           url: item.html_url || "",
           avatar: item.avatar_url || "/images/avatar.jpg?asset",
         }));

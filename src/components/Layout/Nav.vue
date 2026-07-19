@@ -13,7 +13,7 @@
           <SvgIcon name="Menu" />
         </template>
       </n-button>
-      <Logo v-if="!isDesktop" :size="40" @click="router.push('/')" />
+      <Logo v-if="!isDesktop" :size="40" @click="router.go(-1)" />
       <template v-if="!isSmallScreen">
         <n-button :focusable="false" tertiary circle @click="router.go(-1)">
           <template #icon>

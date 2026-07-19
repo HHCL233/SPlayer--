@@ -84,7 +84,7 @@
             v-if="settingStore.showSpectrums"
             :color="statusStore.mainColor ? `rgb(${statusStore.mainColor})` : 'rgb(239 239 239)'"
             :show="!statusStore.playerMetaShow"
-            :height="60"
+            :height="600"
           />
         </template>
       </div>

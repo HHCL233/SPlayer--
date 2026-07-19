@@ -438,6 +438,11 @@ audio {
   border-radius: 4px;
 }
 
+.n-drawer {
+  background: color-mix(in srgb, var(--n-color) 50%, transparent);
+  backdrop-filter: blur(6px);
+}
+
 @media (max-width: 400px) {
   .n-modal {
     margin: 0 !important;

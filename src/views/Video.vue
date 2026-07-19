@@ -455,7 +455,8 @@ onUnmounted(() => {
       margin: 12px 0;
     }
     :deep(.n-ellipsis) {
-      cursor: pointer;
+      cursor: text;
+      user-select: text;
     }
     .tags {
       margin-top: 4px;

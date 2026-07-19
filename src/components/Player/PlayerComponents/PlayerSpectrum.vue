@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ opacity: show ? '0.6' : '0.1' }" class="player-spectrum">
+  <div :style="{ opacity: show ? '0.6' : '0.4' }" class="player-spectrum">
     <canvas ref="canvasRef" :style="{ height: height + 'px' }" class="spectrum-line" />
   </div>
 </template>
@@ -33,7 +33,7 @@ const drawSpectrum = () => {
   // 设置画布宽度，最大为 1600
   canvasRef.value.width = document.body.clientWidth >= 1600 ? 1600 : document.body.clientWidth;
   // 设置画布高度
-  canvasRef.value.height = props.height || 80;
+  canvasRef.value.height = props.height || 120;
   // 获取2D上下文
   const ctx: CanvasRenderingContext2D | null = canvasRef.value.getContext("2d");
   // 画布宽高
@@ -152,19 +152,19 @@ onBeforeUnmount(() => {
     mask: linear-gradient(
       90deg,
       hsla(0, 0%, 100%, 0) 0,
-      hsla(0, 0%, 100%, 0.6) 5%,
+      hsla(0, 0%, 100%, 0.4) 35%,
       #fff 10%,
-      #fff 90%,
-      hsla(0, 0%, 100%, 0.6) 95%,
+      #fff 0%,
+      hsla(0, 0%, 100%, 0.4) 35%,
       hsla(0, 0%, 100%, 0)
     );
     -webkit-mask: linear-gradient(
       90deg,
       hsla(0, 0%, 100%, 0) 0,
-      hsla(0, 0%, 100%, 0.6) 5%,
+      hsla(0, 0%, 100%, 0.4) 35%,
       #fff 10%,
-      #fff 90%,
-      hsla(0, 0%, 100%, 0.6) 95%,
+      #fff 10%,
+      hsla(0, 0%, 100%, 0.4) 35%,
       hsla(0, 0%, 100%, 0)
     );
   }

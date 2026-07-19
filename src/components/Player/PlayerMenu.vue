@@ -6,7 +6,7 @@
           <div
             v-if="musicStore.isHasLrc && musicStore.playSong.type !== 'radio'"
             :class="['menu-icon', { open: statusStore.pureLyricMode }]"
-            @click="statusStore.pureLyricMode = !statusStore.pureLyricMode"
+            @click="changeLyricMode()"
           >
             <SvgIcon name="TextPlay" />
           </div>
@@ -33,6 +33,11 @@ const statusStore = useStatusStore();
 
 // Fullscreen
 const { isFullscreen, toggle: toggleFullscreen } = useFullscreen();
+
+const changeLyricMode = () => {
+  statusStore.showPlayerComment = false;
+  statusStore.pureLyricMode = !statusStore.pureLyricMode;
+};
 </script>
 
 <style lang="scss" scoped>
