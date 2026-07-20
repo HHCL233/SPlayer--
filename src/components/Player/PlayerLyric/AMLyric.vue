@@ -93,11 +93,16 @@ const options = [
     label: "复制选中歌词",
     key: "copy",
   },
+  {
+    label: "跳转",
+    key: "go",
+  },
 ];
 const showDropdown = ref(false);
 const x = ref(0);
 const y = ref(0);
 const dropdownSelectedLyric = ref("");
+let dropdownSelectedLyricLineMouseEvent: LyricLineMouseEvent | null = null;
 
 const musicStore = useMusicStore();
 const statusStore = useStatusStore();
@@ -203,6 +208,7 @@ const lineContextmenu = (e: LyricLineMouseEvent) => {
   // 设置选中歌词
   dropdownSelectedLyric.value = `${originalLyric}
 ${translatedLyric ?? ""}`;
+  dropdownSelectedLyricLineMouseEvent = e;
 
   nextTick().then(() => {
     showDropdown.value = true;
@@ -212,9 +218,14 @@ ${translatedLyric ?? ""}`;
 };
 
 // 处理歌词右键菜单选中
-const handleSelect = async () => {
-  showDropdown.value = false;
-  await copyData(dropdownSelectedLyric.value);
+const handleSelect = async (key: string) => {
+  if (key === "copy") {
+    showDropdown.value = false;
+    await copyData(dropdownSelectedLyric.value);
+  } else if (key === "go") {
+    if (!dropdownSelectedLyricLineMouseEvent) return;
+    jumpSeek(dropdownSelectedLyricLineMouseEvent);
+  }
 };
 
 // 处理歌词右键菜单关闭
