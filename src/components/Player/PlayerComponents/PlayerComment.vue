@@ -285,6 +285,7 @@ onMounted(() => {
     padding: 0 16px;
     border-radius: 12px;
     background-color: rgba(var(--main-cover-color), 0.08);
+    backdrop-filter: blur(10px);
     .cover-img {
       width: 60px;
       height: 60px;

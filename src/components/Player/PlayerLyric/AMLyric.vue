@@ -1,4 +1,15 @@
 <template>
+  <n-dropdown
+    placement="bottom-start"
+    trigger="manual"
+    :x="x"
+    :y="y"
+    :options="options"
+    :show="showDropdown"
+    :on-clickoutside="onClickoutside"
+    @update:show="(v) => (showDropdown = v)"
+    @select="handleSelect"
+  />
   <Transition name="fade" mode="out-in">
     <div
       :key="amLyricsData?.[0]?.words?.length"
@@ -49,6 +60,7 @@
         }"
         class="am-lyric"
         @line-click="jumpSeek"
+        @line-contextmenu="lineContextmenu"
       />
     </div>
   </Transition>
@@ -67,6 +79,7 @@ import { usePlayerController } from "@/core/player/PlayerController";
 import { cloneDeep } from "lodash-es";
 import { lyricLangFontStyle } from "@/utils/lyric/lyricFontConfig";
 import { getFontSize } from "@/utils/style";
+import { copyData } from "@/utils/helper";
 
 defineProps({
   currentTime: {
@@ -74,6 +87,17 @@ defineProps({
     default: 0,
   },
 });
+
+const options = [
+  {
+    label: "复制选中歌词",
+    key: "copy",
+  },
+];
+const showDropdown = ref(false);
+const x = ref(0);
+const y = ref(0);
+const dropdownSelectedLyric = ref("");
 
 const musicStore = useMusicStore();
 const statusStore = useStatusStore();
@@ -165,6 +189,37 @@ const processLyricLanguage = (player = lyricPlayerRef.value) => {
       console.warn("无法获取歌词行元素的主歌词部分，无法设置 lang 属性", lyricLineElement);
     }
   }
+};
+
+// 处理歌词右键菜单
+const lineContextmenu = (e: LyricLineMouseEvent) => {
+  e.preventDefault();
+  showDropdown.value = false;
+  // 获取原歌词
+  const originalLyric = amLyricsData.value[e.lineIndex].words.map((word) => word.word).join("");
+  // 获取翻译歌词
+  const translatedLyric = amLyricsData.value[e.lineIndex].translatedLyric;
+
+  // 设置选中歌词
+  dropdownSelectedLyric.value = `${originalLyric}
+${translatedLyric ?? ""}`;
+
+  nextTick().then(() => {
+    showDropdown.value = true;
+    x.value = e.clientX;
+    y.value = e.clientY;
+  });
+};
+
+// 处理歌词右键菜单选中
+const handleSelect = async () => {
+  showDropdown.value = false;
+  await copyData(dropdownSelectedLyric.value);
+};
+
+// 处理歌词右键菜单关闭
+const onClickoutside = () => {
+  showDropdown.value = false;
 };
 
 // 切换歌曲时处理歌词语言

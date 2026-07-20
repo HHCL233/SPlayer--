@@ -1,4 +1,15 @@
 <template>
+  <n-dropdown
+    placement="bottom-start"
+    trigger="manual"
+    :x="x"
+    :y="y"
+    :options="options"
+    :show="showDropdown"
+    :on-clickoutside="onClickoutside"
+    @update:show="(v) => (showDropdown = v)"
+    @select="handleSelect"
+  />
   <div
     :key="`lyric-${musicStore.playSong.id}`"
     :style="{
@@ -69,7 +80,11 @@
               :id="`lrc-${index}`"
               :class="getLyricLineClass(item, index)"
               :style="getLyricLineStyle(item, index)"
-              @click="jumpSeek(item.data.startTime)"
+              @click="
+                jumpSeek(item.data.startTime);
+                console.log(item);
+              "
+              @contextmenu="handleContextMenu($event, item.data)"
             >
               <!-- 逐字歌词 -->
               <template v-if="isYrcMode">
@@ -140,6 +155,7 @@ import { getLyricLanguage } from "@/utils/format";
 import { isElectron } from "@/utils/env";
 import { lyricLangFontStyle } from "@/utils/lyric/lyricFontConfig";
 import { getFontSize } from "@/utils/style";
+import { copyData } from "@/utils/helper";
 
 const props = defineProps({
   currentTime: {
@@ -147,6 +163,17 @@ const props = defineProps({
     default: 0,
   },
 });
+
+const options = [
+  {
+    label: "复制选中歌词",
+    key: "copy",
+  },
+];
+const showDropdown = ref(false);
+const x = ref(0);
+const y = ref(0);
+const dropdownSelectedLyric = ref("");
 
 const musicStore = useMusicStore();
 const statusStore = useStatusStore();
@@ -511,6 +538,37 @@ const jumpSeek = (time: number) => {
   const offsetMs = statusStore.getSongOffset(musicStore.playSong?.id);
   player.setSeek(time - offsetMs);
   player.play();
+};
+
+// 处理歌词右键菜单
+const handleContextMenu = (e: MouseEvent, data: LyricLine) => {
+  e.preventDefault();
+  showDropdown.value = false;
+  // 获取原歌词
+  const originalLyric = data.words.map((word) => word.word).join("");
+  // 获取翻译歌词
+  const translatedLyric = data.translatedLyric;
+
+  // 设置选中歌词
+  dropdownSelectedLyric.value = `${originalLyric}
+${translatedLyric ?? ""}`;
+
+  nextTick().then(() => {
+    showDropdown.value = true;
+    x.value = e.clientX;
+    y.value = e.clientY;
+  });
+};
+
+// 处理歌词右键菜单选中
+const handleSelect = async () => {
+  showDropdown.value = false;
+  await copyData(dropdownSelectedLyric.value);
+};
+
+// 处理歌词右键菜单关闭
+const onClickoutside = () => {
+  showDropdown.value = false;
 };
 
 // 监听歌词滚动
