@@ -245,7 +245,8 @@ onMounted(() => {
   }
   &.show-player {
     #main-content {
-      bottom: 80px;
+      /**bottom: 80px;**/
+      border-radius: 16px;
     }
   }
   &.show-full-player {
