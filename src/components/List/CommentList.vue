@@ -281,7 +281,7 @@ const handleHug = debounce(async (item: CommentType) => {
           }
         }
         .text {
-          white-space: pre-wrap;
+          white-space: break-all;
           user-select: text;
         }
       }

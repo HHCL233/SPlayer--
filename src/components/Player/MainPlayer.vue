@@ -8,6 +8,7 @@
         player: statusStore.showFullPlayer,
       },
     ]"
+    @click.stop="statusStore.showFullPlayer = true"
   >
     <!-- 进度条 -->
     <PlayerSlider />
@@ -19,7 +20,6 @@
           v-if="!settingStore.hiddenCovers.player"
           :key="musicStore.playSong.cover"
           class="cover"
-          @click.stop="statusStore.showFullPlayer = true"
         >
           <n-image
             :src="musicStore.songCover"
@@ -72,12 +72,19 @@
               :size="20"
               class="like"
               @click="
-                toLikeSong(musicStore.playSong, !dataStore.isLikeSong(musicStore.playSong.id))
+                $event.stopPropagation();
+                toLikeSong(musicStore.playSong, !dataStore.isLikeSong(musicStore.playSong.id));
               "
             />
             <!-- 更多操作 -->
             <n-dropdown :options="songMoreOptions" trigger="click" placement="top-start">
-              <SvgIcon name="FormatList" :size="20" :depth="2" class="more" />
+              <SvgIcon
+                name="FormatList"
+                :size="20"
+                :depth="2"
+                class="more"
+                @click="$event.stopPropagation()"
+              />
             </n-dropdown>
           </div>
           <div class="lyric-container">
@@ -457,26 +464,42 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
 <style lang="scss" scoped>
 .main-player {
   position: fixed;
-  left: 248px;
+  left: calc(124px + 50%);
   bottom: -90px;
-  height: 86px;
-  padding: 0 15px;
-  width: calc(100% - 256px);
+  height: 72px;
+  padding: 0 18px;
+  width: 50%;
   background-color: color-mix(in srgb, var(--surface-container-hex) 75%, transparent);
   backdrop-filter: blur(8px);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  transition: bottom 0.3s;
+  transition:
+    bottom 0.3s,
+    transform 0.5s;
   z-index: 10;
   margin: 4px;
-  border-radius: 18px;
+  border-radius: 42px;
   overflow: hidden;
-  border: 1px solid color-mix(in oklab, var(--surface-container-hex), white 10%);
+  border: 1px solid color-mix(in oklab, var(--surface-container-hex), rgba(255, 255, 255, 0.5) 30%);
+  transform: translateX(-50%);
+  cursor: pointer;
+  @media (max-width: 1024px) {
+    left: 0px !important;
+    width: calc(100% - 8px) !important;
+    transform: none;
+  }
   &.show {
     bottom: 0;
   }
+  &:active {
+    transform: translateX(-50%) scale(1.05);
+    @media (max-width: 1024px) {
+      transform: scale(1.05);
+    }
+  }
   .player-slider {
+    display: none;
     position: absolute;
     width: 35%;
     height: 16px;
@@ -509,7 +532,6 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
       overflow: hidden;
       margin-right: 12px;
       transition: opacity 0.2s;
-      cursor: pointer;
       :deep(img) {
         width: 56px;
         height: 56px;
@@ -527,16 +549,6 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
         transition:
           opacity 0.3s,
           transform 0.3s;
-      }
-      &:hover {
-        :deep(img) {
-          transform: scale(1.2);
-          filter: brightness(0.6) blur(2px);
-        }
-        .n-icon {
-          opacity: 1;
-          transform: scale(1);
-        }
       }
       &:active {
         .n-icon {
@@ -570,6 +582,7 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
           transition: transform 0.3s;
           cursor: pointer;
           flex-shrink: 0;
+          pointer-events: all;
           &:hover {
             transform: scale(1.15);
           }
@@ -685,6 +698,7 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
     max-width: 640px;
     .time-container {
       margin-right: 8px;
+      display: none !important;
       .n-tag {
         justify-content: center;
         font-size: 12px;
@@ -711,10 +725,9 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
       }
     }
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 1330px) {
     .play-menu {
       .time-container {
-        display: none !important;
       }
     }
   }

@@ -462,7 +462,7 @@ audio {
   border-radius: 18px !important;
   overflow: hidden;
   margin: 4px;
-  border: 1px solid color-mix(in oklab, var(--surface-container-hex), white 10%);
+  border: 1px solid color-mix(in oklab, var(--surface-container-hex), rgba(255, 255, 255, 0.5) 30%);
   height: calc(100vh - 8px) !important;
   background: color-mix(in srgb, var(--n-color) 75%, transparent);
   backdrop-filter: blur(6px);
