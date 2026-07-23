@@ -102,7 +102,7 @@
                 class="lyric"
               />
               <!-- 歌手 -->
-              <div v-else class="artists">
+              <div v-else class="artists" @click="$event.stopPropagation()">
                 <TextContainer :speed="0.5" class="artists-container">
                   <n-text
                     v-if="musicStore.playSong.type === 'radio'"
@@ -142,7 +142,13 @@
       </Transition>
     </div>
     <!-- 控制 -->
-    <n-flex :size="8" align="center" justify="center" class="play-control">
+    <n-flex
+      :size="8"
+      align="center"
+      justify="center"
+      class="play-control"
+      @click="$event.stopPropagation()"
+    >
       <!-- 随机按钮 -->
       <template v-if="musicStore.playSong.type !== 'radio' && !statusStore.personalFmMode">
         <div class="play-icon" @click.stop="player.toggleShuffle()">
@@ -208,7 +214,7 @@
       </template>
     </n-flex>
     <!-- 功能 -->
-    <Transition name="fade" mode="out-in">
+    <Transition name="fade" mode="out-in" @click="$event.stopPropagation()">
       <n-flex
         :key="statusStore.personalFmMode ? 'fm' : 'normal'"
         :size="[8, 0]"
@@ -468,7 +474,7 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
   bottom: -90px;
   height: 72px;
   padding: 0 18px;
-  width: 50%;
+  width: 68%;
   background-color: color-mix(in srgb, var(--surface-container-hex) 75%, transparent);
   backdrop-filter: blur(8px);
   display: grid;

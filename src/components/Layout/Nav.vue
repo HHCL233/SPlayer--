@@ -309,6 +309,16 @@ onMounted(async () => {
   padding: 0 1rem;
   background-color: transparent;
   -webkit-app-region: drag;
+  &::before {
+    pointer-events: none;
+    position: absolute;
+    z-index: 9999999;
+    content: "";
+    height: 35px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(var(--background)), transparent);
+    top: 70px;
+  }
   .n-button {
     width: 40px;
     height: 40px;
