@@ -89,7 +89,7 @@
             display: 'grid',
             gridTemplateRows: '1fr',
             minHeight: '100%',
-            padding: isMobile ? '0 16px' : '0 24px',
+            padding: isMobile ? '0 24px 80px 16px' : '0 24px 80px 24px',
           }"
           position="absolute"
           embedded
@@ -243,7 +243,6 @@ onMounted(() => {
   }
   &.show-player {
     #main-content {
-      bottom: 80px;
     }
   }
   &.show-full-player {

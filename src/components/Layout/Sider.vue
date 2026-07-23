@@ -8,7 +8,7 @@
     </div>
     <n-scrollbar
       :style="{
-        maxHeight: `calc(100vh - ${musicStore.isHasPlayer && statusStore.showPlayBar ? 150 : 70}px)`,
+        maxHeight: `calc(100vh - 70px)`,
       }"
     >
       <Menu />

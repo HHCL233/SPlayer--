@@ -443,6 +443,36 @@ audio {
   backdrop-filter: blur(6px);
 }
 
+.n-back-top {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-color-picker-panel {
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.n-menu-item-content::before {
+  border-left-color: transparent !important;
+  border-radius: 48px !important;
+}
+
+.n-layout-sider {
+  border-radius: 18px !important;
+  overflow: hidden;
+  margin: 4px;
+  border: 1px solid color-mix(in oklab, var(--surface-container-hex), white 10%);
+  height: calc(100vh - 8px) !important;
+  background: color-mix(in srgb, var(--n-color) 75%, transparent);
+  backdrop-filter: blur(6px);
+  height: 100%;
+}
+
+.n-layout-sider__border {
+  display: none;
+}
+
 @media (max-width: 400px) {
   .n-modal {
     margin: 0 !important;
@@ -455,4 +485,8 @@ audio {
 
 button {
   -webkit-app-region: no-drag;
+}
+
+* {
+  --n-tab-border-radius: 48px !important;
 }

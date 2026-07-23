@@ -457,27 +457,33 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
 <style lang="scss" scoped>
 .main-player {
   position: fixed;
-  left: 0;
+  left: 248px;
   bottom: -90px;
-  height: 80px;
+  height: 86px;
   padding: 0 15px;
-  width: 100%;
-  background-color: var(--surface-container-hex);
+  width: calc(100% - 256px);
+  background-color: color-mix(in srgb, var(--surface-container-hex) 75%, transparent);
+  backdrop-filter: blur(8px);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   transition: bottom 0.3s;
   z-index: 10;
+  margin: 4px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--surface-container-hex), white 10%);
   &.show {
     bottom: 0;
   }
   .player-slider {
     position: absolute;
-    width: 100%;
+    width: 35%;
     height: 16px;
-    top: -8px;
-    left: 0;
+    bottom: 2px;
+    left: 50%;
     margin: 0;
+    transform: translateX(-50%);
     --n-rail-height: 3px;
     --n-handle-size: 14px;
   }

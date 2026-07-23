@@ -69,6 +69,8 @@ defineProps<{
   width: 100%;
   min-height: 120px;
   border-radius: 12px;
+  background-color: color-mix(in srgb, var(--n-color-modal) 75%, transparent);
+  backdrop-filter: blur(6px);
   :deep(.n-card__content) {
     padding: 16px;
     display: flex;

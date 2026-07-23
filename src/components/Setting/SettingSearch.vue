@@ -111,7 +111,7 @@ const handleSelect = (value: string | number) => {
   z-index: 100;
   .search-input {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 48px;
   }
   .search-result {
     position: absolute;
