@@ -312,7 +312,6 @@ onMounted(async () => {
   &::before {
     pointer-events: none;
     position: absolute;
-    z-index: 9999999;
     content: "";
     height: 35px;
     width: 100%;
