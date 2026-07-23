@@ -89,7 +89,7 @@
             display: 'grid',
             gridTemplateRows: '1fr',
             minHeight: '100%',
-            padding: isMobile ? '0 24px 80px 16px' : '0 24px 80px 24px',
+            padding: isMobile ? '0 24px 0 16px' : '0 24px 0 24px',
           }"
           position="absolute"
           embedded
@@ -107,6 +107,8 @@
           <n-back-top :right="40" :bottom="120">
             <SvgIcon :size="22" name="Up" />
           </n-back-top>
+          <!--填充空白-->
+          <div class="space"></div>
         </n-layout>
       </n-layout>
     </n-layout>
@@ -243,6 +245,7 @@ onMounted(() => {
   }
   &.show-player {
     #main-content {
+      bottom: 80px;
     }
   }
   &.show-full-player {
