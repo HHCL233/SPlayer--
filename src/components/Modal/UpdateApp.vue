@@ -27,10 +27,13 @@
       <n-button strong secondary @click="emit('close')"> 取消 </n-button>
       <n-button type="warning" strong secondary @click="goDownload"> 前往下载 </n-button>
       <!-- 已下载完成：显示立即安装 -->
+      <!--
       <n-button v-if="statusStore.updateDownloaded" type="success" strong @click="doInstall">
         立即安装
       </n-button>
+      -->
       <!-- 下载中：显示进度 -->
+      <!--
       <n-button
         v-else
         :loading="statusStore.updateDownloading"
@@ -43,6 +46,7 @@
             : "立即更新"
         }}
       </n-button>
+      -->
     </n-flex>
   </div>
 </template>
@@ -88,7 +92,7 @@ const doInstall = () => {
 // 前往下载
 const goDownload = () => {
   emit("close");
-  window.open("https://splayer.imsyy.top/download.html", "_blank");
+  window.open("https://github.com/HHCL233/SPlayer--/releases", "_blank");
 };
 </script>
 
