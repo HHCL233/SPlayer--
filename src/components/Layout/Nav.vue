@@ -63,7 +63,7 @@
             <template #header>
               <n-flex align="center" justify="center" class="aside-logo">
                 <Logo />
-                <n-text>SPlayer</n-text>
+                <n-text>SPlayer--</n-text>
               </n-flex>
             </template>
             <Menu @menu-click="showAside = false" />
@@ -373,7 +373,7 @@ onMounted(async () => {
 }
 .aside-logo {
   .n-text {
-    width: 90px;
+    width: 100px;
     font-size: 22px;
     font-family: "logo";
     margin-top: 2px;
