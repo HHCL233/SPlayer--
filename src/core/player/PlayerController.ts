@@ -696,7 +696,7 @@ class PlayerController {
       statusStore.playStatus = true;
       playerIpc.sendMediaPlayState("Playing");
       mediaSessionManager.updatePlaybackStatus(true);
-      window.document.title = `${playTitle} | SPlayer`;
+      window.document.title = `${playTitle} | SPlayer--`;
       // 只有真正播放了才重置重试计数
       if (this.retryInfo.count > 0) this.retryInfo.count = 0;
       // 注意：failSkipCount 的重置移至 onTimeUpdate，确保有实际进度
