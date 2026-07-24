@@ -53,14 +53,11 @@
 
 <script setup lang="ts">
 import type { UpdateInfoType } from "@/types/main";
-import { useStatusStore } from "@/stores";
 import packageJson from "@/../package.json";
 
 const props = defineProps<{ data: UpdateInfoType }>();
 
 const emit = defineEmits<{ close: [] }>();
-
-const statusStore = useStatusStore();
 
 // 检测是否为预发布版本（alpha/beta/rc 等）
 const isPrerelease = computed(() => {
@@ -77,16 +74,6 @@ const handleMarkdownClick = (event: MouseEvent) => {
     event.preventDefault();
     window.open(anchor.href, "_blank");
   }
-};
-
-// 开始下载更新
-const startDownload = () => {
-  window.electron.ipcRenderer.send("start-download-update");
-};
-
-// 安装更新
-const doInstall = () => {
-  window.electron.ipcRenderer.send("install-update");
 };
 
 // 前往下载
