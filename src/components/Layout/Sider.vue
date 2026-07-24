@@ -17,10 +17,9 @@
 </template>
 
 <script setup lang="ts">
-import { useStatusStore, useMusicStore } from "@/stores";
+import { useStatusStore } from "@/stores";
 
 const router = useRouter();
-const musicStore = useMusicStore();
 const statusStore = useStatusStore();
 </script>
 
