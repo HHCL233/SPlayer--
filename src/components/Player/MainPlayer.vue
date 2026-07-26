@@ -358,7 +358,7 @@ const songMoreOptions = computed<DropdownOption[]>(() => {
           props: {
             onClick: () =>
               copyData(
-                `分享${typeof song.artists == "string" ? song.artists : song.artists.map((item) => item.name).join("，")}的单曲《${song.name}》: ${getShareUrl(song.type, song.id)} (来自@SPlayer--)`,
+                `分享${typeof song.artists == "string" ? song.artists : song.artists.map((item) => item.name).join("/")}的单曲《${song.name}》: ${getShareUrl(song.type, song.id)} (来自@SPlayer--)`,
                 "已复制分享文案到剪贴板",
               ),
           },
