@@ -10,6 +10,8 @@ import type { LyricPriority } from "@/types/lyric";
 export interface SettingState {
   /** Schema 版本号 */
   schemaVersion?: number;
+  /** 启用侧边栏 */
+  useSidebar: boolean;
   /** 明暗模式 */
   themeMode: "light" | "dark" | "auto";
   /** 主题类别 */
@@ -492,6 +494,7 @@ export interface SettingState {
 
 export const useSettingStore = defineStore("setting", {
   state: (): SettingState => ({
+    useSidebar: true,
     schemaVersion: 0,
     themeMode: "auto",
     themeColorType: "default",

@@ -44,6 +44,23 @@
     <n-flex :wrap="false" justify="end" class="nav-main">
       <!-- 搜索 -->
       <SearchInp v-if="settingStore.useOnlineService" />
+      <!-- 顶栏 -->
+      <n-tabs
+        type="segment"
+        animated
+        class="nav-main-tabs"
+        v-if="!settingStore.useSidebar && isDesktop"
+        default-value="home"
+        @update:value="menuUpdate"
+        :value="allTabs.map((tab) => tab.name).includes(currentTab) ? currentTab : 'home'"
+      >
+        <n-tab-pane
+          v-for="tab in allTabs"
+          :name="tab.name"
+          :tab="tab.content"
+          :disabled="tab.disabled"
+        ></n-tab-pane>
+      </n-tabs>
       <!-- 可拖拽 -->
       <div v-if="isDesktop" class="nav-drag" />
       <n-flex align="center">
@@ -148,6 +165,7 @@ import { isDev, isElectron } from "@/utils/env";
 import { useMobile } from "@/composables/useMobile";
 
 const router = useRouter();
+const route = useRoute();
 const settingStore = useSettingStore();
 const statusStore = useStatusStore();
 const { isDesktop, isSmallScreen } = useMobile();
@@ -177,6 +195,26 @@ const useBorderless = ref(true);
 const isMax = ref(false);
 // 是否显示侧边栏
 const showAside = ref(false);
+// 顶栏当前选中菜单
+const currentTab = ref("home");
+// 顶栏全部选项
+const allTabs = ref([
+  {
+    name: "home",
+    disabled: false,
+    content: "主页",
+  },
+  {
+    name: "discover",
+    disabled: false,
+    content: "发现音乐",
+  },
+  {
+    name: "user-playlists",
+    disabled: true,
+    content: "歌单",
+  },
+]);
 
 // 最小化
 const min = () => window.electron.ipcRenderer.send("win-min");
@@ -298,6 +336,23 @@ onMounted(async () => {
     });
   }
 });
+
+// 菜单项更改
+const menuUpdate = (value: string | number) => {
+  try {
+    router.push({ name: value.toString() });
+  } catch (e) {
+    window.$message.error(`无法切换页面：${e}`);
+    currentTab.value = "home";
+  }
+};
+
+watch(
+  () => router.currentRoute.value,
+  () => {
+    currentTab.value = String(route.matched[1]?.name);
+  },
+);
 </script>
 
 <style lang="scss" scoped>
@@ -329,6 +384,15 @@ onMounted(async () => {
     align-items: center;
     height: 100%;
     margin-left: 12px;
+    .nav-main-tabs {
+      position: absolute;
+      width: 35%;
+      height: 40px !important;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      -webkit-app-region: no-drag;
+    }
     .nav-drag {
       flex: 1;
       width: 100%;

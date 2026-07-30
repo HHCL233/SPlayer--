@@ -8,6 +8,7 @@
         player: statusStore.showFullPlayer,
       },
     ]"
+    :style="{ left: `calc(${settingStore.useSidebar ? '124px' : '0px'} + 50%)` }"
     @click.stop="statusStore.showFullPlayer = true"
   >
     <!-- 进度条 -->
@@ -470,7 +471,6 @@ const showCreatorTip = () => window.$message.info("暂不支持查看主播主�
 <style lang="scss" scoped>
 .main-player {
   position: fixed;
-  left: calc(124px + 50%);
   bottom: -90px;
   height: 72px;
   padding: 0 18px;

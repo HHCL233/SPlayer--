@@ -48,10 +48,11 @@
         'show-player': musicStore.isHasPlayer && statusStore.showPlayBar,
         'show-full-player': statusStore.showFullPlayer,
       }"
-      has-sider
+      :has-sider="settingStore.useSidebar"
     >
       <!-- 侧边栏 -->
       <n-layout-sider
+        v-if="settingStore.useSidebar"
         v-show="isDesktop"
         id="main-sider"
         :style="{
@@ -228,6 +229,17 @@ onMounted(() => {
   #main-layout {
     // background-color: rgba(var(--background), 0.58);
     background-color: rgba(var(--background));
+    height: 100%;
+  }
+  #main-layout-header {
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(var(--background));
+    margin: 2px;
+    #main-layout-header-tabs {
+      width: 40%;
+    }
   }
   #main-content {
     top: 70px;

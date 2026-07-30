@@ -110,6 +110,16 @@ export const useAppearanceSettings = (): SettingConfig => {
         title: "界面布局",
         items: [
           {
+            key: "useSidebar",
+            label: "启用侧边栏",
+            type: "switch",
+            description: "是否启用侧边栏",
+            value: computed({
+              get: () => settingStore.useSidebar,
+              set: (v) => (settingStore.useSidebar = v),
+            }),
+          },
+          {
             key: "sidebarHide",
             label: "侧边栏管理",
             type: "button",
