@@ -84,6 +84,20 @@ const appRoutes: Array<RouteRecordRaw> = [
       },
     ],
   },
+  // 我的歌单
+  {
+    path: "/playlists",
+    name: "playlists",
+    component: () => import("@/views/PlayList/layout.vue"),
+    redirect: "/playlists/online",
+    children: [
+      {
+        name: "online-playlists",
+        path: "online",
+        component: () => import("@/views/PlayList/online.vue"),
+      },
+    ],
+  },
   // 歌手
   {
     path: "/artist",
@@ -112,7 +126,7 @@ const appRoutes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  // 歌单
+  // MV
   {
     path: "/video",
     name: "video",

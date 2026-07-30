@@ -210,8 +210,8 @@ const allTabs = ref([
     content: "发现音乐",
   },
   {
-    name: "user-playlists",
-    disabled: true,
+    name: "playlists",
+    disabled: false,
     content: "歌单",
   },
 ]);
