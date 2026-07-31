@@ -52,7 +52,7 @@
         v-if="!settingStore.useSidebar && isDesktop"
         default-value="home"
         @update:value="menuUpdate"
-        :value="allTabs.map((tab) => tab.name).includes(currentTab) ? currentTab : 'home'"
+        :value="currentTab"
       >
         <n-tab-pane
           v-for="tab in allTabs"

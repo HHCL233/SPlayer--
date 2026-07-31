@@ -254,6 +254,7 @@ const getListData = async (id: number | string): Promise<SongType[]> => {
 .cover-list {
   width: 100%;
   padding: 20px 4px;
+  margin-bottom: 100px;
   .cover-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));

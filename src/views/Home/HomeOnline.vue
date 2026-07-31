@@ -239,6 +239,10 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.home-online {
+  margin-bottom: 120px;
+}
+
 .main-rec {
   .main-rec-grid {
     display: grid;

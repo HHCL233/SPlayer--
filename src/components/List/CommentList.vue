@@ -216,7 +216,7 @@ const handleHug = debounce(async (item: CommentType) => {
 
 <style lang="scss" scoped>
 .comment-list {
-  margin-bottom: 20px;
+  margin-bottom: 120px;
   :deep(.n-skeleton) {
     min-height: 128px;
     border-radius: 12px;
