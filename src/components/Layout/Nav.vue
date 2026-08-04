@@ -347,10 +347,14 @@ const menuUpdate = (value: string | number) => {
   }
 };
 
+// 页面切换时切换当前选中菜单
 watch(
   () => router.currentRoute.value,
   () => {
-    currentTab.value = String(route.matched[1]?.name);
+    const currentRouteName = String(route.matched[1]?.name);
+    if (allTabs.value.map((tab) => tab.name).includes(currentRouteName)) {
+      currentTab.value = currentRouteName;
+    }
   },
 );
 </script>
