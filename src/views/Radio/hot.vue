@@ -131,6 +131,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .radio-hot {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   .radio-type {
     margin: 12px 0 30px;
     transition: opacity 0.2s;

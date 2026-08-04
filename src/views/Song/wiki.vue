@@ -508,6 +508,9 @@ onBeforeRouteUpdate((to) => {
 
 <style scoped lang="scss">
 .song-wiki {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   width: 100%;
   height: 100%;
   padding-bottom: 80px;

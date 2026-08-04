@@ -72,6 +72,9 @@ watch(
 
 <style lang="scss" scoped>
 .search {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;

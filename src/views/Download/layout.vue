@@ -181,6 +181,9 @@ onActivated(() => {
 
 <style lang="scss" scoped>
 .download {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;

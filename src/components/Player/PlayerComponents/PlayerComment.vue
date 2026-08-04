@@ -352,6 +352,9 @@ onMounted(() => {
       }
     }
   }
+  .hot-comments {
+    z-index: 1;
+  }
   .placeholder {
     width: 100%;
     height: 100px;

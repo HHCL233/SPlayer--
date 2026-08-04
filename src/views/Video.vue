@@ -360,6 +360,9 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .video {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   --plyr-color-main: var(--primary-hex);
   --plyr-video-control-color-hover: var(--background-hex);
   --plyr-control-radius: 8px;

@@ -34,6 +34,7 @@ const greetings = computed(() => {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
+  width: 100%;
   .welcome {
     margin-top: 8px;
     margin-bottom: 20px;

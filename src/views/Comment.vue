@@ -127,6 +127,9 @@ watch(
 
 <style lang="scss" scoped>
 .comment-page {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;

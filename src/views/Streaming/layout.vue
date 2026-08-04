@@ -493,6 +493,9 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .streaming {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   .title {

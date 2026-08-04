@@ -546,6 +546,9 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .local {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   .title {

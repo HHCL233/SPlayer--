@@ -228,6 +228,7 @@ const handleHug = debounce(async (item: CommentType) => {
     padding: 16px;
     border: 2px solid rgba(var(--primary), 0.12);
     background-color: var(--surface-container-hex);
+    backdrop-filter: blur(8px) !important;
     .user {
       display: flex;
       flex-direction: column;

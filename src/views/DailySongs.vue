@@ -92,6 +92,9 @@ onMounted(updateDailySongsData);
 
 <style lang="scss" scoped>
 .daily-songs {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   .title {
     display: flex;
     align-items: center;

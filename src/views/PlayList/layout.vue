@@ -35,6 +35,9 @@ const playlistsType = ref<string>(
 </script>
 <style lang="scss" scoped>
 .playlists {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   .title {
