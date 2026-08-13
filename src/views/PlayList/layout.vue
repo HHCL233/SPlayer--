@@ -2,6 +2,19 @@
   <div class="playlists">
     <div class="title">
       <n-text class="keyword">我的歌单</n-text>
+      <n-button
+        type="primary"
+        strong
+        quaternary
+        circle
+        @click="openCreatePlaylist(statusStore.playlistMode === 'local')"
+      >
+        <template #icon>
+          <Transition name="fade" mode="out-in">
+            <SvgIcon key="Add" name="Add" :size="28" />
+          </Transition>
+        </template>
+      </n-button>
     </div>
     <!-- 标签页 -->
     <n-tabs
@@ -24,9 +37,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useSettingStore } from "@/stores";
+import { useSettingStore, useStatusStore } from "@/stores";
+import { openCreatePlaylist } from "@/utils/modal";
 const router = useRouter();
 const settingStore = useSettingStore();
+const statusStore = useStatusStore();
 
 // 歌单路由
 const playlistsType = ref<string>(
@@ -48,6 +63,7 @@ const playlistsType = ref<string>(
     margin-bottom: 20px;
     height: 40px;
     .keyword {
+      flex: 1;
       font-size: 30px;
       font-weight: bold;
       margin-right: 12px;

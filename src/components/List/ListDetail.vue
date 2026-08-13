@@ -607,12 +607,12 @@ const handleTabChange = (value: "songs" | "comments") => {
           :deep(.n-button),
           .search,
           .tabs {
-            height: 32px;
+            height: 34px;
             --n-font-size: 13px;
             --n-padding: 0 14px;
             --n-icon-size: 16px;
             --n-tab-font-size: 13px;
-            --n-tab-padding: 2px 0;
+            --n-tab-padding: 4px 0;
           }
         }
       }
